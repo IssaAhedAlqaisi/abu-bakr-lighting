@@ -3,40 +3,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>أبو بكر للإنارة</title>
+  <title>أبو بكر للإنارة | Abu Bakr Lighting</title>
 
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-  <header class="top">
-    <h1>أبو بكر للإنارة</h1>
-    <p>موقع تجريبي — بس نتأكد إنه شغّال وبعدين بنفخّمه 😎</p>
+<body class="theme-dark">
+
+  <!-- 🔄 Preloader -->
+  <div id="preloader">
+    <div class="loader-lamp">
+      <div class="lamp-wire"></div>
+      <div class="lamp-head"></div>
+      <div class="lamp-bulb"></div>
+      <div class="glow"></div>
+    </div>
+  </div>
+
+  <!-- 🔝 Topbar -->
+  <header class="topbar">
+    <div class="container flex-between">
+      <div class="topbar-contact">
+        <span>
+          <i class="fa-solid fa-phone"></i>
+          <span data-i18n="topbar_phone_label">اتصل بنا:</span>
+          <a href="tel:0790000000">0790000000</a>
+        </span>
+        <span class="divider">|</span>
+        <span>
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp:</span>
+          <a href="https://wa.me/962790000000" target="_blank">+962 79 000 0000</a>
+        </span>
+      </div>
+      <button id="lang-toggle" class="lang-btn">EN</button>
+    </div>
   </header>
 
-  <nav class="nav">
-    <button data-section="home">الرئيسية</button>
-    <button data-section="about">من نحن</button>
-    <button data-section="contact">تواصل</button>
+  <!-- 🔻 Navbar -->
+  <nav class="navbar">
+    <div class="container flex-between">
+      <div class="brand">
+        <div class="brand-logo">
+          <span class="lamp-dot"></span>
+        </div>
+        <div class="brand-text">
+          <span data-i18n="brand_name_main">أبو بكر للإنارة</span>
+          <small data-i18n="brand_name_sub">إضاءة تُكمل فخامة بيتك</small>
+        </div>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li class="nav-link active" data-section="home" data-i18n="nav_home">الرئيسية</li>
+        <li class="nav-link" data-section="about" data-i18n="nav_about">من نحن</li>
+        <li class="nav-link" data-section="products" data-i18n="nav_products">المنتجات</li>
+        <li class="nav-link" data-section="gallery" data-i18n="nav_gallery">المعرض</li>
+        <li class="nav-link" data-section="projects" data-i18n="nav_projects">أعمالنا</li>
+        <li class="nav-link" data-section="contact" data-i18n="nav_contact">تواصل</li>
+      </ul>
+    </div>
   </nav>
 
   <main>
-    <section id="page-home" class="page active">
-      <h2>الرئيسية</h2>
-      <p>أهلاً بك في موقع أبو بكر للإنارة.</p>
+
+    <!-- 🏠 الرئيسية -->
+    <section id="page-home" class="page-section active">
+      <div class="hero">
+        <!-- 🔁 غيّر لينك الصورة لرابط Imgur تبعك -->
+        <div class="hero-bg" style="background-image: url('https://i.imgur.com/yourHeroImage.jpg');"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1 data-i18n="hero_title">إضاءة فاخرة تصنع تفاصيل بيتك</h1>
+            <p data-i18n="hero_subtitle">
+              أبو بكر للإنارة — تشكيلة ضخمة من الثريات، السبوتات، والإنارة المخفية لتصميم منازل، فلل ومحلات تجارية بأعلى درجات الفخامة.
+            </p>
+            <div class="hero-actions">
+              <button class="btn primary" data-go="products" data-i18n="hero_cta_primary">شاهد مجموعتنا</button>
+              <button class="btn ghost" data-go="contact" data-i18n="hero_cta_secondary">احجز استشارة إنارة</button>
+            </div>
+            <div class="hero-badges">
+              <span data-i18n="hero_badge_years">+10 سنوات خبرة</span>
+              <span data-i18n="hero_badge_projects">+300 مشروع منجز</span>
+            </div>
+          </div>
+
+          <!-- لمبات بتضوي وبتطفي -->
+          <div class="hero-lamps">
+            <div class="lamp-card lamp-1">
+              <div class="lamp-wire"></div>
+              <div class="lamp-head"></div>
+              <div class="lamp-bulb flicker"></div>
+              <div class="lamp-glow soft"></div>
+            </div>
+            <div class="lamp-card lamp-2">
+              <div class="lamp-wire"></div>
+              <div class="lamp-head"></div>
+              <div class="lamp-bulb steady"></div>
+              <div class="lamp-glow strong"></div>
+            </div>
+            <div class="lamp-card lamp-3">
+              <div class="lamp-wire"></div>
+              <div class="lamp-head"></div>
+              <div class="lamp-bulb pulse"></div>
+              <div class="lamp-glow pulse-glow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="page-about" class="page">
-      <h2>من نحن</h2>
-      <p>هنا راح نكتب نبذة تعريفية عن المعرض.</p>
+    <!-- ℹ️ من نحن -->
+    <section id="page-about" class="page-section">
+      <div class="container section">
+        <div class="section-header">
+          <h2 data-i18n="about_title">من نحن</h2>
+          <p data-i18n="about_subtitle">نبذة عن أبو بكر للإنارة</p>
+        </div>
+        <div class="grid about-grid">
+          <div class="about-text">
+            <p data-i18n="about_p1">
+              أبو بكر للإنارة هو معرض متخصص في حلول الإنارة العصرية والراقية للمنازل، الفلل، المحلات التجارية والمكاتب.
+            </p>
+            <p data-i18n="about_p2">
+              نوفر تشكيلة واسعة من الثريات الكلاسيك والمودرن، السبوتات، الإنارة المخفية، والإضاءة الخارجية بجودة عالية وأسعار منافسة.
+            </p>
+            <p data-i18n="about_p3">
+              فريقنا يقدم لك استشارات إنارة متكاملة لاختيار الإضاءة المناسبة لكل زاوية في بيتك، لتعيش تجربة ضوء مريحة وجمالية.
+            </p>
+          </div>
+          <div class="about-image">
+            <!-- غيّر الصورة من Imgur -->
+            <img src="https://i.imgur.com/yourShopInside.jpg" alt="داخل معرض أبو بكر للإنارة" />
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="page-contact" class="page">
-      <h2>تواصل معنا</h2>
-      <p>رقم الهاتف: 0790000000</p>
+    <!-- 💡 المنتجات -->
+    <section id="page-products" class="page-section">
+      <div class="container section">
+        <div class="section-header">
+          <h2 data-i18n="products_title">المنتجات</h2>
+          <p data-i18n="products_subtitle">تشكيلة مختارة من أهم فئات الإنارة</p>
+        </div>
+
+        <div class="grid products-grid">
+          <div class="product-card">
+            <div class="product-img" style="background-image: url('https://i.imgur.com/chandelier1.jpg');"></div>
+            <h3 data-i18n="prod_chandeliers_title">ثريات فاخرة</h3>
+            <p data-i18n="prod_chandeliers_desc">
+              ثريات كريستال ومودرن تناسب الصالونات، غرف السفرة، والفلل ذات الأسقف العالية.
+            </p>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background-image: url('https://i.imgur.com/spot1.jpg');"></div>
+            <h3 data-i18n="prod_spots_title">سبوتات وإنارة مخفية</h3>
+            <p data-i18n="prod_spots_desc">
+              سبوتات سقفية وليد مخفي للأسقف الجبسية مع توزيع ضوء مريح وعصري.
+            </p>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background-image: url('https://i.imgur.com/ledstrip1.jpg');"></div>
+            <h3 data-i18n="prod_led_title">ليد شريط وإنارة ديكورية</h3>
+            <p data-i18n="prod_led_desc">
+              شرائط ليد ومؤثرات ضوئية لإبراز تفاصيل الجبس والديكور الداخلي.
+            </p>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background-image: url('https://i.imgur.com/outdoor1.jpg');"></div>
+            <h3 data-i18n="prod_outdoor_title">إنارة خارجية</h3>
+            <p data-i18n="prod_outdoor_desc">
+              وحدات إنارة للحدائق، الممرات، واجهات المباني ومداخل الفلل.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- 🖼️ المعرض -->
+    <section id="page-gallery" class="page-section">
+      <div class="container section">
+        <div class="section-header">
+          <h2 data-i18n="gallery_title">المعرض</h2>
+          <p data-i18n="gallery_subtitle">لقطات من داخل المعرض وأبرز القطع</p>
+        </div>
+        <div class="gallery-grid">
+          <!-- بدّل الصور بروابط Imgur تبعتك -->
+          <img src="https://i.imgur.com/gallery1.jpg" alt="إنارة 1" class="gallery-item" />
+          <img src="https://i.imgur.com/gallery2.jpg" alt="إنارة 2" class="gallery-item" />
+          <img src="https://i.imgur.com/gallery3.jpg" alt="إنارة 3" class="gallery-item" />
+          <img src="https://i.imgur.com/gallery4.jpg" alt="إنارة 4" class="gallery-item" />
+          <img src="https://i.imgur.com/gallery5.jpg" alt="إنارة 5" class="gallery-item" />
+          <img src="https://i.imgur.com/gallery6.jpg" alt="إنارة 6" class="gallery-item" />
+        </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-img" src="" alt="preview" />
+      </div>
+    </section>
+
+    <!-- 🏗️ أعمالنا -->
+    <section id="page-projects" class="page-section">
+      <div class="container section">
+        <div class="section-header">
+          <h2 data-i18n="projects_title">أعمالنا</h2>
+          <p data-i18n="projects_subtitle">نماذج من مشاريع الإنارة التي قمنا بتنفيذها</p>
+        </div>
+
+        <div class="grid projects-grid">
+          <div class="project-card">
+            <div class="project-img" style="background-image: url('https://i.imgur.com/project1.jpg');"></div>
+            <div class="project-body">
+              <h3 data-i18n="project1_title">إنارة فيلا خاصة</h3>
+              <p data-i18n="project1_desc">
+                تصميم إنارة متكامل للفيلا يشمل الصالونات، غرف النوم، الممرات والواجهة الخارجية.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img" style="background-image: url('https://i.imgur.com/project2.jpg');"></div>
+            <div class="project-body">
+              <h3 data-i18n="project2_title">محل تجاري</h3>
+              <p data-i18n="project2_desc">
+                إنارة عرض للمنتجات داخل محل تجاري مع توزيع ضوء يبرز الألوان والتفاصيل.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img" style="background-image: url('https://i.imgur.com/project3.jpg');"></div>
+            <div class="project-body">
+              <h3 data-i18n="project3_title">شقة عائلية</h3>
+              <p data-i18n="project3_desc">
+                حلول إنارة اقتصادية وعملية لشقة عائلية مع الحفاظ على لمسة جمالية دافئة.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📞 تواصل -->
+    <section id="page-contact" class="page-section">
+      <div class="container section">
+        <div class="section-header">
+          <h2 data-i18n="contact_title">تواصل معنا</h2>
+          <p data-i18n="contact_subtitle">احجز استشارة أو اسأل عن أي قطعة تناسب ديكور بيتك</p>
+        </div>
+
+        <div class="grid contact-grid">
+          <div class="contact-info">
+            <h3 data-i18n="contact_visit_title">زورنا في المعرض</h3>
+            <p data-i18n="contact_address">
+              الأردن - (اكتب عنوان أبو بكر للإنارة بالتفصيل هنا)
+            </p>
+            <p>
+              <i class="fa-solid fa-phone"></i>
+              <span data-i18n="contact_phone_label">الهاتف:</span>
+              <a href="tel:0790000000">0790000000</a>
+            </p>
+            <p>
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp:
+              <a href="https://wa.me/962790000000" target="_blank">+962 79 000 0000</a>
+            </p>
+            <p>
+              <i class="fa-solid fa-clock"></i>
+              <span data-i18n="contact_hours_label">ساعات العمل:</span>
+              <span data-i18n="contact_hours_value">السبت - الخميس: 10 صباحًا - 10 مساءً</span>
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <h3 data-i18n="contact_form_title">تواصل سريع عبر واتساب</h3>
+            <p data-i18n="contact_form_desc">
+              اضغط على الزر أدناه لبدء محادثة واتساب معنا مباشرة، وأرسل لنا صورة الغرفة أو المكان لنقترح لك أنسب إنارة.
+            </p>
+            <a class="btn whatsapp" href="https://wa.me/962790000000" target="_blank" data-i18n="contact_whatsapp_btn">
+              تواصل عبر واتساب
+            </a>
+
+            <div class="map-wrapper">
+              <!-- غيّر هذا الـ src برابط الـ Google Maps لمحل أبو بكر -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb="
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- ⚫ Footer -->
+  <footer class="footer">
+    <div class="container flex-between">
+      <p data-i18n="footer_copy">
+        © <span id="year"></span> أبو بكر للإنارة — جميع الحقوق محفوظة
+      </p>
+      <p class="footer-dev">
+        <span data-i18n="footer_dev_by">تصميم وتنفيذ:</span> <span>Issa / Tech Minds</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JS -->
   <script src="js/main.js"></script>
 </body>
 </html>
