@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const preloader = document.getElementById("preloader");
   const navToggle = document.getElementById("nav-toggle");
   const navLinksContainer = document.getElementById("nav-links");
-  const yearSpan = document.getElementById("year");
-
-  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+  const footerCopy = document.getElementById("footer-copy");
 
   // 🔁 Preloader
   if (preloader) {
@@ -82,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 🌐 Language toggle
+  // 🌐 Language data
   let currentLang = "ar";
 
   const translations = {
@@ -156,7 +154,11 @@ document.addEventListener("DOMContentLoaded", () => {
       contact_form_title: "تواصل سريع عبر واتساب",
       contact_form_desc:
         "اضغط على الزر أدناه لبدء محادثة واتساب معنا مباشرة، وأرسل لنا صورة الغرفة أو المكان لنقترح لك أنسب إنارة.",
-      contact_whatsapp_btn: "تواصل عبر واتساب"
+      contact_whatsapp_btn: "تواصل عبر واتساب",
+
+      footer_dev_by: "تصميم وتنفيذ:",
+
+      // Wizard
       wizard_title: "ابدأ رحلتك الضوئية",
       wizard_subtitle:
         "أجب عن 3 أسئلة بسيطة، ودع نبضة الضوء تقترح لك أجواء الإنارة المناسبة.",
@@ -182,8 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       wizard_btn_generate: "إطلاق نبضة الضوء",
       wizard_error: "من فضلك أجب عن جميع الأسئلة أولاً.",
-      wizard_result_title: "نبضتك الضوئية",
-
+      wizard_result_title: "نبضتك الضوئية"
     },
 
     en: {
@@ -258,14 +259,18 @@ document.addEventListener("DOMContentLoaded", () => {
       contact_form_title: "Fast contact on WhatsApp",
       contact_form_desc:
         "Click the button below to start a WhatsApp chat with us and send a photo of your room so we can suggest the best lighting.",
-      contact_whatsapp_btn: "Contact on WhatsApp"
+      contact_whatsapp_btn: "Contact on WhatsApp",
 
-        wizard_title: "Start your light journey",
+      footer_dev_by: "Designed & developed by:",
+
+      // Wizard
+      wizard_title: "Start your light journey",
       wizard_subtitle:
         "Answer 3 simple questions and let the light pulse suggest the right mood for your space.",
 
       wizard_q1_title: "What is your mood color now?",
-      wizard_q1_desc: "Pick the color that feels closest to your current mood.",
+      wizard_q1_desc:
+        "Pick the color that feels closest to your current mood.",
       wizard_mood_blue: "Blue — Calm",
       wizard_mood_red: "Red — Energetic",
       wizard_mood_grey: "Grey — Neutral",
@@ -285,8 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       wizard_btn_generate: "Generate light pulse",
       wizard_error: "Please answer all questions first.",
-      wizard_result_title: "Your light pulse",
-
+      wizard_result_title: "Your light pulse"
     }
   };
 
@@ -301,6 +305,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // Footer copy
+    if (footerCopy) {
+      const year = new Date().getFullYear();
+      if (lang === "ar") {
+        footerCopy.textContent =
+          "© " + year + " أبو بكر للإنارة — جميع الحقوق محفوظة";
+      } else {
+        footerCopy.textContent =
+          "© " + year + " Abu Bakr Lighting — All rights reserved";
+      }
+    }
+
+    // dir + lang
     if (lang === "ar") {
       document.documentElement.lang = "ar";
       document.documentElement.dir = "rtl";
@@ -311,19 +328,25 @@ document.addEventListener("DOMContentLoaded", () => {
       if (langToggleBtn) langToggleBtn.textContent = "عربي";
     }
   }
+
+  applyLanguage(currentLang);
+
+  if (langToggleBtn) {
+    langToggleBtn.addEventListener("click", () => {
+      currentLang = currentLang === "ar" ? "en" : "ar";
+      applyLanguage(currentLang);
+    });
+  }
+
   // 🌌 Intro overlay logic
   const introOverlay = document.getElementById("intro-overlay");
   const introBtn = document.getElementById("intro-btn");
-  const introLight = introOverlay
-    ? introOverlay.querySelector(".intro-light")
-    : null;
 
-  if (introOverlay && introBtn && introLight) {
+  if (introOverlay && introBtn) {
     introBtn.addEventListener("click", () => {
-      // تشغيل أنيميشن الضوء
       introOverlay.classList.add("playing");
 
-      // تشغيل صوت ترحيبي (باستخدام المتصفح)
+      // صوت ترحيبي (لو المتصفح سامح)
       try {
         const text =
           currentLang === "ar"
@@ -336,13 +359,13 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Speech not supported or blocked.");
       }
 
-      // بعد شوية، نخفي شاشة المدخل
       setTimeout(() => {
         introOverlay.classList.remove("playing");
         introOverlay.classList.add("hidden");
       }, 1400);
     });
   }
+
   // 🔮 Light pulse wizard logic
   const wizardOptionsContainers = document.querySelectorAll(".wizard-options");
   const wizardGenerateBtn = document.getElementById("wizard-generate");
@@ -364,7 +387,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     options.forEach((opt) => {
       opt.addEventListener("click", () => {
-        // إزالة active عن الباقي
         options.forEach((o) => o.classList.remove("active"));
         opt.classList.add("active");
 
@@ -443,34 +465,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (wizardError) wizardError.style.display = "none";
 
-      // وصف حسب اللغة
       const lang = currentLang;
       if (wizardResultText) {
         wizardResultText.innerHTML = buildDescription(lang, wizardState);
       }
 
-      // تقدر هون تغيّر الفيديو حسب الاختيارات لاحقًا إذا حاب
-      // مثلا لو space = home نحط فيديو معين، لو office فيديو ثاني...
-
       if (wizardResult) wizardResult.style.display = "block";
 
-      // تشغيل الفيديو من البداية
       if (wizardVideo) {
         wizardVideo.currentTime = 0;
         wizardVideo.play().catch(() => {});
       }
 
-      // سكرول للنتيجة
       wizardResult.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-  }
-
-  applyLanguage(currentLang);
-
-  if (langToggleBtn) {
-    langToggleBtn.addEventListener("click", () => {
-      currentLang = currentLang === "ar" ? "en" : "ar";
-      applyLanguage(currentLang);
     });
   }
 });
