@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (preloader) {
     setTimeout(() => {
       preloader.style.opacity = "0";
-      setTimeout(() => (preloader.style.display = "none"), 300);
+      setTimeout(() => (preloader.style.display = "none"), 320);
     }, 900);
   }
 
