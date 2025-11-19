@@ -157,6 +157,33 @@ document.addEventListener("DOMContentLoaded", () => {
       contact_form_desc:
         "اضغط على الزر أدناه لبدء محادثة واتساب معنا مباشرة، وأرسل لنا صورة الغرفة أو المكان لنقترح لك أنسب إنارة.",
       contact_whatsapp_btn: "تواصل عبر واتساب"
+      wizard_title: "ابدأ رحلتك الضوئية",
+      wizard_subtitle:
+        "أجب عن 3 أسئلة بسيطة، ودع نبضة الضوء تقترح لك أجواء الإنارة المناسبة.",
+
+      wizard_q1_title: "ما لون مزاجك الآن؟",
+      wizard_q1_desc: "اختر أقرب لون لإحساسك الحالي.",
+      wizard_mood_blue: "أزرق — هادئ",
+      wizard_mood_red: "أحمر — نشيط",
+      wizard_mood_grey: "رمادي — محايد",
+
+      wizard_q2_title: "ما نوع المساحة التي تريد إنارتها؟",
+      wizard_q2_desc: "اختر نوع المكان الذي تفكر فيه.",
+      wizard_space_home: "منزل",
+      wizard_space_office: "مكتب",
+      wizard_space_shop: "متجر",
+      wizard_space_factory: "مصنع",
+
+      wizard_q3_title: "متى تشعر بالسعادة أكثر؟",
+      wizard_q3_desc: "اختر الوقت الأقرب لقلبك.",
+      wizard_time_morning: "صباحًا",
+      wizard_time_evening: "مساءً",
+      wizard_time_night: "ليلاً",
+
+      wizard_btn_generate: "إطلاق نبضة الضوء",
+      wizard_error: "من فضلك أجب عن جميع الأسئلة أولاً.",
+      wizard_result_title: "نبضتك الضوئية",
+
     },
 
     en: {
@@ -232,6 +259,34 @@ document.addEventListener("DOMContentLoaded", () => {
       contact_form_desc:
         "Click the button below to start a WhatsApp chat with us and send a photo of your room so we can suggest the best lighting.",
       contact_whatsapp_btn: "Contact on WhatsApp"
+
+        wizard_title: "Start your light journey",
+      wizard_subtitle:
+        "Answer 3 simple questions and let the light pulse suggest the right mood for your space.",
+
+      wizard_q1_title: "What is your mood color now?",
+      wizard_q1_desc: "Pick the color that feels closest to your current mood.",
+      wizard_mood_blue: "Blue — Calm",
+      wizard_mood_red: "Red — Energetic",
+      wizard_mood_grey: "Grey — Neutral",
+
+      wizard_q2_title: "What type of space do you want to light?",
+      wizard_q2_desc: "Choose the kind of space you're thinking of.",
+      wizard_space_home: "Home",
+      wizard_space_office: "Office",
+      wizard_space_shop: "Shop",
+      wizard_space_factory: "Factory",
+
+      wizard_q3_title: "When do you feel happiest?",
+      wizard_q3_desc: "Choose the time that feels most like you.",
+      wizard_time_morning: "Morning",
+      wizard_time_evening: "Evening",
+      wizard_time_night: "Night",
+
+      wizard_btn_generate: "Generate light pulse",
+      wizard_error: "Please answer all questions first.",
+      wizard_result_title: "Your light pulse",
+
     }
   };
 
@@ -255,6 +310,159 @@ document.addEventListener("DOMContentLoaded", () => {
       document.documentElement.dir = "ltr";
       if (langToggleBtn) langToggleBtn.textContent = "عربي";
     }
+  }
+  // 🌌 Intro overlay logic
+  const introOverlay = document.getElementById("intro-overlay");
+  const introBtn = document.getElementById("intro-btn");
+  const introLight = introOverlay
+    ? introOverlay.querySelector(".intro-light")
+    : null;
+
+  if (introOverlay && introBtn && introLight) {
+    introBtn.addEventListener("click", () => {
+      // تشغيل أنيميشن الضوء
+      introOverlay.classList.add("playing");
+
+      // تشغيل صوت ترحيبي (باستخدام المتصفح)
+      try {
+        const text =
+          currentLang === "ar"
+            ? "مرحبًا، أنا نورك. كيف تريد أن أغير حياتك اليوم؟"
+            : "Welcome, I am your light. How would you like me to change your space today?";
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = currentLang === "ar" ? "ar-SA" : "en-US";
+        window.speechSynthesis.speak(utter);
+      } catch (e) {
+        console.log("Speech not supported or blocked.");
+      }
+
+      // بعد شوية، نخفي شاشة المدخل
+      setTimeout(() => {
+        introOverlay.classList.remove("playing");
+        introOverlay.classList.add("hidden");
+      }, 1400);
+    });
+  }
+  // 🔮 Light pulse wizard logic
+  const wizardOptionsContainers = document.querySelectorAll(".wizard-options");
+  const wizardGenerateBtn = document.getElementById("wizard-generate");
+  const wizardError = document.getElementById("wizard-error");
+  const wizardResult = document.getElementById("wizard-result");
+  const wizardResultText = document.getElementById("wizard-result-text");
+  const wizardVideo = document.getElementById("wizard-video");
+
+  const wizardState = {
+    mood: null,
+    space: null,
+    time: null
+  };
+
+  // اختيار الخيارات
+  wizardOptionsContainers.forEach((container) => {
+    const questionKey = container.getAttribute("data-question");
+    const options = container.querySelectorAll(".wizard-option");
+
+    options.forEach((opt) => {
+      opt.addEventListener("click", () => {
+        // إزالة active عن الباقي
+        options.forEach((o) => o.classList.remove("active"));
+        opt.classList.add("active");
+
+        const value = opt.getAttribute("data-value");
+        wizardState[questionKey] = value;
+      });
+    });
+  });
+
+  function buildDescription(lang, state) {
+    const moodMap = {
+      ar: {
+        blue: "مزاج هادئ يميل للأمان والسكينة",
+        red: "مزاج نشيط يحب الحركة والإنجاز",
+        grey: "مزاج متوازن ومحايد يحب البساطة"
+      },
+      en: {
+        blue: "a calm mood seeking safety and peace",
+        red: "an active mood that loves energy and productivity",
+        grey: "a balanced, neutral mood that favors simplicity"
+      }
+    };
+
+    const spaceMap = {
+      ar: {
+        home: "مساحة منزلية تحتاج لدفء ولمسة مريحة",
+        office: "مساحة عمل تحتاج لتركيز ووضوح",
+        shop: "متجر يحتاج لإبراز المنتجات وجذب الانتباه",
+        factory: "مساحة عملية تحتاج لإنارة قوية وواضحة"
+      },
+      en: {
+        home: "a home space that needs warmth and comfort",
+        office: "a workspace that needs focus and clarity",
+        shop: "a shop that needs to highlight products and attract attention",
+        factory: "a functional space that needs strong, clear lighting"
+      }
+    };
+
+    const timeMap = {
+      ar: {
+        morning: "تستمتع بضوء الصباح اللطيف والبدايات الجديدة",
+        evening: "تحب أجواء المساء الدافئة بعد يوم طويل",
+        night: "تعشق هدوء الليل ولمسات الضوء الهادئة"
+      },
+      en: {
+        morning: "you enjoy the soft light of morning and fresh starts",
+        evening: "you love the warm mood of evenings after a long day",
+        night: "you adore the calm of night with subtle lighting touches"
+      }
+    };
+
+    if (lang === "ar") {
+      return `
+        يبدو أنك تمتلك ${moodMap.ar[state.mood]}، وتفكر في ${spaceMap.ar[state.space]}،
+        و ${timeMap.ar[state.time]}.<br><br>
+        نقترح لك مزيجًا من إنارة أساسية ناعمة، مع سبوتات موجهة ولمسات ليد مخفي
+        لخلق "نبضة ضوء" خاصة تشبه شخصيتك ومزاجك. شاهد الفيديو لترى كيف يمكن
+        أن تتحول مساحتك من عادية إلى مضيئة بالحياة.
+      `;
+    } else {
+      return `
+        It looks like you have ${moodMap.en[state.mood]}, thinking about ${spaceMap.en[state.space]},
+        and ${timeMap.en[state.time]}.<br><br>
+        We recommend a mix of soft main lighting, focused spotlights and hidden LED accents
+        to create a unique "light pulse" that matches your personality and mood.
+        Watch the video to feel how your space can transform from ordinary to full of life.
+      `;
+    }
+  }
+
+  if (wizardGenerateBtn) {
+    wizardGenerateBtn.addEventListener("click", () => {
+      if (!wizardState.mood || !wizardState.space || !wizardState.time) {
+        if (wizardError) wizardError.style.display = "block";
+        return;
+      }
+      if (wizardError) wizardError.style.display = "none";
+
+      // وصف حسب اللغة
+      const lang = currentLang;
+      if (wizardResultText) {
+        wizardResultText.innerHTML = buildDescription(lang, wizardState);
+      }
+
+      // تقدر هون تغيّر الفيديو حسب الاختيارات لاحقًا إذا حاب
+      // مثلا لو space = home نحط فيديو معين، لو office فيديو ثاني...
+
+      if (wizardResult) wizardResult.style.display = "block";
+
+      // تشغيل الفيديو من البداية
+      if (wizardVideo) {
+        wizardVideo.currentTime = 0;
+        wizardVideo.play().catch(() => {});
+      }
+
+      // سكرول للنتيجة
+      wizardResult.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
   }
 
   applyLanguage(currentLang);
