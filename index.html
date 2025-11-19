@@ -25,6 +25,15 @@
       <div class="glow"></div>
     </div>
   </div>
+  <!-- 🌌 المدخل السحري -->
+  <div id="intro-overlay">
+    <div class="intro-inner">
+      <div class="intro-light"></div>
+      <h1>ابدأ رحلتك الضوئية</h1>
+      <p>اضغط لترى النور</p>
+      <button id="intro-btn">اضغط لترى النور</button>
+    </div>
+  </div>
 
   <!-- 🔝 Topbar -->
   <header class="topbar">
@@ -122,6 +131,98 @@
           </div>
         </div>
       </div>
+            <!-- 🔮 قسم اختبار نبضة الضوء -->
+      <div class="container section light-wizard">
+        <div class="section-header">
+          <h2 data-i18n="wizard_title">ابدأ رحلتك الضوئية</h2>
+          <p data-i18n="wizard_subtitle">
+            أجب عن 3 أسئلة بسيطة، ودع "نبضة الضوء" تقترح لك أجواء الإنارة المناسبة.
+          </p>
+        </div>
+
+        <div class="wizard-grid">
+          <!-- السؤال 1 -->
+          <div class="wizard-card">
+            <h3 data-i18n="wizard_q1_title">ما لون مزاجك الآن؟</h3>
+            <p data-i18n="wizard_q1_desc">اختر أقرب لون لإحساسك الحالي.</p>
+            <div class="wizard-options" data-question="mood">
+              <button data-value="blue" class="wizard-option">
+                <span class="color-dot color-blue"></span>
+                <span data-i18n="wizard_mood_blue">أزرق — هادئ</span>
+              </button>
+              <button data-value="red" class="wizard-option">
+                <span class="color-dot color-red"></span>
+                <span data-i18n="wizard_mood_red">أحمر — نشيط</span>
+              </button>
+              <button data-value="grey" class="wizard-option">
+                <span class="color-dot color-grey"></span>
+                <span data-i18n="wizard_mood_grey">رمادي — محايد</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- السؤال 2 -->
+          <div class="wizard-card">
+            <h3 data-i18n="wizard_q2_title">ما نوع المساحة التي تريد إنارتها؟</h3>
+            <p data-i18n="wizard_q2_desc">اختر نوع المكان الذي تفكر فيه.</p>
+            <div class="wizard-options" data-question="space">
+              <button data-value="home" class="wizard-option" data-i18n="wizard_space_home">
+                منزل
+              </button>
+              <button data-value="office" class="wizard-option" data-i18n="wizard_space_office">
+                مكتب
+              </button>
+              <button data-value="shop" class="wizard-option" data-i18n="wizard_space_shop">
+                متجر
+              </button>
+              <button data-value="factory" class="wizard-option" data-i18n="wizard_space_factory">
+                مصنع
+              </button>
+            </div>
+          </div>
+
+          <!-- السؤال 3 -->
+          <div class="wizard-card">
+            <h3 data-i18n="wizard_q3_title">متى تشعر بالسعادة أكثر؟</h3>
+            <p data-i18n="wizard_q3_desc">اختر الوقت الأقرب لقلبك.</p>
+            <div class="wizard-options" data-question="time">
+              <button data-value="morning" class="wizard-option" data-i18n="wizard_time_morning">
+                صباحًا
+              </button>
+              <button data-value="evening" class="wizard-option" data-i18n="wizard_time_evening">
+                مساءً
+              </button>
+              <button data-value="night" class="wizard-option" data-i18n="wizard_time_night">
+                ليلاً
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wizard-actions">
+          <button id="wizard-generate" class="btn primary" data-i18n="wizard_btn_generate">
+            إطلاق نبضة الضوء
+          </button>
+          <p id="wizard-error" class="wizard-error" style="display:none;" data-i18n="wizard_error">
+            من فضلك أجب عن جميع الأسئلة أولاً.
+          </p>
+        </div>
+
+        <div id="wizard-result" class="wizard-result" style="display:none;">
+          <h3 data-i18n="wizard_result_title">نبضتك الضوئية</h3>
+          <p id="wizard-result-text">
+            <!-- سيتم ملؤها من الجافاسكربت حسب اختياراتك -->
+          </p>
+          <div class="wizard-video-wrapper">
+            <!-- حاليًا فيديو تجريبي، غيّره لاحقًا لفيديو before/after حسب ذوقك -->
+            <video id="wizard-video" controls muted playsinline>
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- ℹ️ من نحن -->
