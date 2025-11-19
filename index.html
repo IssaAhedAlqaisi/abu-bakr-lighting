@@ -5,16 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>أبو بكر للإنارة | Abu Bakr Lighting</title>
 
-  <!-- Fonts & Icons -->
+  <!-- English fallback font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="theme-dark">
+<body>
 
   <!-- 🌌 المدخل السحري -->
   <div id="intro-overlay">
@@ -26,7 +33,7 @@
     </div>
   </div>
 
-  <!-- 🔄 Preloader -->
+  <!-- ⏳ Preloader -->
   <div id="preloader">
     <div class="loader-lamp">
       <div class="lamp-wire"></div>
@@ -58,7 +65,7 @@
 
   <!-- 🔻 Navbar -->
   <nav class="navbar">
-    <div class="container flex-between">
+    <div class="container flex-between nav-inner">
       <div class="brand">
         <div class="brand-logo">
           <span class="lamp-dot"></span>
@@ -100,8 +107,12 @@
               أبو بكر للإنارة — تشكيلة ضخمة من الثريات، السبوتات، والإنارة المخفية لتصميم منازل، فلل ومحلات تجارية بأعلى درجات الفخامة.
             </p>
             <div class="hero-actions">
-              <button class="btn primary" data-go="products" data-i18n="hero_cta_primary">شاهد مجموعتنا</button>
-              <button class="btn ghost" data-go="contact" data-i18n="hero_cta_secondary">احجز استشارة إنارة</button>
+              <button class="btn primary" data-go="products" data-i18n="hero_cta_primary">
+                شاهد مجموعتنا
+              </button>
+              <button class="btn ghost" data-go="contact" data-i18n="hero_cta_secondary">
+                احجز استشارة إنارة
+              </button>
             </div>
             <div class="hero-badges">
               <span data-i18n="hero_badge_years">+10 سنوات خبرة</span>
@@ -109,23 +120,23 @@
             </div>
           </div>
 
-          <!-- 💡 لمبات بتضوي وبتطفي -->
+          <!-- 💡 ثريات بدون خلفية كارد -->
           <div class="hero-lamps">
-            <div class="lamp-card lamp-1">
+            <div class="lamp-cluster lamp-1">
               <div class="lamp-wire"></div>
               <div class="lamp-head"></div>
               <div class="lamp-bulb flicker"></div>
               <div class="lamp-glow soft"></div>
             </div>
-            <div class="lamp-card lamp-2">
+            <div class="lamp-cluster lamp-2">
               <div class="lamp-wire"></div>
-              <div class="lamp-head"></div>
+              <div class="lamp-head wide"></div>
               <div class="lamp-bulb steady"></div>
               <div class="lamp-glow strong"></div>
             </div>
-            <div class="lamp-card lamp-3">
+            <div class="lamp-cluster lamp-3">
               <div class="lamp-wire"></div>
-              <div class="lamp-head"></div>
+              <div class="lamp-head slim"></div>
               <div class="lamp-bulb pulse"></div>
               <div class="lamp-glow pulse-glow"></div>
             </div>
@@ -214,8 +225,14 @@
           <h3 data-i18n="wizard_result_title">نبضتك الضوئية</h3>
           <p id="wizard-result-text"></p>
           <div class="wizard-video-wrapper">
-            <!-- حالياً فيديو تجريبي، غيّره لما تحب -->
-            <video id="wizard-video" controls muted playsinline>
+            <!-- 👇 غيّر الفيديو لفيديو إنارة / قبل-بعد -->
+            <video
+              id="wizard-video"
+              controls
+              muted
+              playsinline
+              poster="https://i.imgur.com/yourLightThumb.jpg"
+            >
               <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
               متصفحك لا يدعم تشغيل الفيديو.
             </video>
@@ -244,8 +261,10 @@
             </p>
           </div>
           <div class="about-image">
-            <!-- غيّر الصورة من Imgur -->
-            <img src="https://i.imgur.com/yourShopInside.jpg" alt="داخل معرض أبو بكر للإنارة" />
+            <img
+              src="https://i.imgur.com/yourShopInside.jpg"
+              alt="داخل معرض أبو بكر للإنارة"
+            />
           </div>
         </div>
       </div>
@@ -261,7 +280,10 @@
 
         <div class="grid products-grid">
           <div class="product-card">
-            <div class="product-img" style="background-image: url('https://i.imgur.com/chandelier1.jpg');"></div>
+            <div
+              class="product-img"
+              style="background-image: url('https://i.imgur.com/chandelier1.jpg');"
+            ></div>
             <h3 data-i18n="prod_chandeliers_title">ثريات فاخرة</h3>
             <p data-i18n="prod_chandeliers_desc">
               ثريات كريستال ومودرن تناسب الصالونات، غرف السفرة، والفلل ذات الأسقف العالية.
@@ -269,7 +291,10 @@
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background-image: url('https://i.imgur.com/spot1.jpg');"></div>
+            <div
+              class="product-img"
+              style="background-image: url('https://i.imgur.com/spot1.jpg');"
+            ></div>
             <h3 data-i18n="prod_spots_title">سبوتات وإنارة مخفية</h3>
             <p data-i18n="prod_spots_desc">
               سبوتات سقفية وليد مخفي للأسقف الجبسية مع توزيع ضوء مريح وعصري.
@@ -277,7 +302,10 @@
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background-image: url('https://i.imgur.com/ledstrip1.jpg');"></div>
+            <div
+              class="product-img"
+              style="background-image: url('https://i.imgur.com/ledstrip1.jpg');"
+            ></div>
             <h3 data-i18n="prod_led_title">ليد شريط وإنارة ديكورية</h3>
             <p data-i18n="prod_led_desc">
               شرائط ليد ومؤثرات ضوئية لإبراز تفاصيل الجبس والديكور الداخلي.
@@ -285,7 +313,10 @@
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background-image: url('https://i.imgur.com/outdoor1.jpg');"></div>
+            <div
+              class="product-img"
+              style="background-image: url('https://i.imgur.com/outdoor1.jpg');"
+            ></div>
             <h3 data-i18n="prod_outdoor_title">إنارة خارجية</h3>
             <p data-i18n="prod_outdoor_desc">
               وحدات إنارة للحدائق، الممرات، واجهات المباني ومداخل الفلل.
@@ -303,7 +334,7 @@
           <p data-i18n="gallery_subtitle">لقطات من داخل المعرض وأبرز القطع</p>
         </div>
         <div class="gallery-grid">
-          <!-- بدّل الصور بروابط Imgur تبعتك -->
+          <!-- 🔁 غيّر روابط الصور لاحقاً (عندك 60–70 صورة بتحطهم هون) -->
           <img src="https://i.imgur.com/gallery1.jpg" alt="إنارة 1" class="gallery-item" />
           <img src="https://i.imgur.com/gallery2.jpg" alt="إنارة 2" class="gallery-item" />
           <img src="https://i.imgur.com/gallery3.jpg" alt="إنارة 3" class="gallery-item" />
@@ -330,7 +361,10 @@
 
         <div class="grid projects-grid">
           <div class="project-card">
-            <div class="project-img" style="background-image: url('https://i.imgur.com/project1.jpg');"></div>
+            <div
+              class="project-img"
+              style="background-image: url('https://i.imgur.com/project1.jpg');"
+            ></div>
             <div class="project-body">
               <h3 data-i18n="project1_title">إنارة فيلا خاصة</h3>
               <p data-i18n="project1_desc">
@@ -340,7 +374,10 @@
           </div>
 
           <div class="project-card">
-            <div class="project-img" style="background-image: url('https://i.imgur.com/project2.jpg');"></div>
+            <div
+              class="project-img"
+              style="background-image: url('https://i.imgur.com/project2.jpg');"
+            ></div>
             <div class="project-body">
               <h3 data-i18n="project2_title">محل تجاري</h3>
               <p data-i18n="project2_desc">
@@ -350,7 +387,10 @@
           </div>
 
           <div class="project-card">
-            <div class="project-img" style="background-image: url('https://i.imgur.com/project3.jpg');"></div>
+            <div
+              class="project-img"
+              style="background-image: url('https://i.imgur.com/project3.jpg');"
+            ></div>
             <div class="project-body">
               <h3 data-i18n="project3_title">شقة عائلية</h3>
               <p data-i18n="project3_desc">
@@ -367,7 +407,9 @@
       <div class="container section">
         <div class="section-header">
           <h2 data-i18n="contact_title">تواصل معنا</h2>
-          <p data-i18n="contact_subtitle">احجز استشارة أو اسأل عن أي قطعة تناسب ديكور بيتك</p>
+          <p data-i18n="contact_subtitle">
+            احجز استشارة أو اسأل عن أي قطعة تناسب ديكور بيتك
+          </p>
         </div>
 
         <div class="grid contact-grid">
@@ -389,16 +431,24 @@
             <p>
               <i class="fa-solid fa-clock"></i>
               <span data-i18n="contact_hours_label">ساعات العمل:</span>
-              <span data-i18n="contact_hours_value">السبت - الخميس: 10 صباحًا - 10 مساءً</span>
+              <span data-i18n="contact_hours_value">
+                السبت - الخميس: 10 صباحًا - 10 مساءً
+              </span>
             </p>
           </div>
 
           <div class="contact-actions">
             <h3 data-i18n="contact_form_title">تواصل سريع عبر واتساب</h3>
             <p data-i18n="contact_form_desc">
-              اضغط على الزر أدناه لبدء محادثة واتساب معنا مباشرة، وأرسل لنا صورة الغرفة أو المكان لنقترح لك أنسب إنارة.
+              اضغط على الزر أدناه لبدء محادثة واتساب معنا مباشرة، وأرسل لنا صورة الغرفة
+              أو المكان لنقترح لك أنسب إنارة.
             </p>
-            <a class="btn whatsapp" href="https://wa.me/962790000000" target="_blank" data-i18n="contact_whatsapp_btn">
+            <a
+              class="btn whatsapp"
+              href="https://wa.me/962790000000"
+              target="_blank"
+              data-i18n="contact_whatsapp_btn"
+            >
               تواصل عبر واتساب
             </a>
 
@@ -407,8 +457,8 @@
               <iframe
                 src="https://www.google.com/maps/embed?pb="
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -419,10 +469,11 @@
 
   <!-- ⚫ Footer -->
   <footer class="footer">
-    <div class="container flex-between">
+    <div class="container flex-between footer-inner">
       <p id="footer-copy"></p>
       <p class="footer-dev">
-        <span data-i18n="footer_dev_by">تصميم وتنفيذ:</span> <span>Issa / Tech Minds</span>
+        <span data-i18n="footer_dev_by">تصميم وتنفيذ:</span>
+        <span>Issa / Tech Minds</span>
       </p>
     </div>
   </footer>
