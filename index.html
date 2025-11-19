@@ -16,15 +16,6 @@
 </head>
 <body class="theme-dark">
 
-  <!-- 🔄 Preloader -->
-  <div id="preloader">
-    <div class="loader-lamp">
-      <div class="lamp-wire"></div>
-      <div class="lamp-head"></div>
-      <div class="lamp-bulb"></div>
-      <div class="glow"></div>
-    </div>
-  </div>
   <!-- 🌌 المدخل السحري -->
   <div id="intro-overlay">
     <div class="intro-inner">
@@ -32,6 +23,16 @@
       <h1>ابدأ رحلتك الضوئية</h1>
       <p>اضغط لترى النور</p>
       <button id="intro-btn">اضغط لترى النور</button>
+    </div>
+  </div>
+
+  <!-- 🔄 Preloader -->
+  <div id="preloader">
+    <div class="loader-lamp">
+      <div class="lamp-wire"></div>
+      <div class="lamp-head"></div>
+      <div class="lamp-bulb"></div>
+      <div class="glow"></div>
     </div>
   </div>
 
@@ -108,7 +109,7 @@
             </div>
           </div>
 
-          <!-- لمبات بتضوي وبتطفي -->
+          <!-- 💡 لمبات بتضوي وبتطفي -->
           <div class="hero-lamps">
             <div class="lamp-card lamp-1">
               <div class="lamp-wire"></div>
@@ -131,7 +132,8 @@
           </div>
         </div>
       </div>
-            <!-- 🔮 قسم اختبار نبضة الضوء -->
+
+      <!-- 🔮 قسم اختبار نبضة الضوء -->
       <div class="container section light-wizard">
         <div class="section-header">
           <h2 data-i18n="wizard_title">ابدأ رحلتك الضوئية</h2>
@@ -210,11 +212,9 @@
 
         <div id="wizard-result" class="wizard-result" style="display:none;">
           <h3 data-i18n="wizard_result_title">نبضتك الضوئية</h3>
-          <p id="wizard-result-text">
-            <!-- سيتم ملؤها من الجافاسكربت حسب اختياراتك -->
-          </p>
+          <p id="wizard-result-text"></p>
           <div class="wizard-video-wrapper">
-            <!-- حاليًا فيديو تجريبي، غيّره لاحقًا لفيديو before/after حسب ذوقك -->
+            <!-- حالياً فيديو تجريبي، غيّره لما تحب -->
             <video id="wizard-video" controls muted playsinline>
               <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
               متصفحك لا يدعم تشغيل الفيديو.
@@ -222,7 +222,6 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- ℹ️ من نحن -->
@@ -404,7 +403,7 @@
             </a>
 
             <div class="map-wrapper">
-              <!-- غيّر هذا الـ src برابط الـ Google Maps لمحل أبو بكر -->
+              <!-- حط رابط Google Maps لمحل أبو بكر -->
               <iframe
                 src="https://www.google.com/maps/embed?pb="
                 loading="lazy"
@@ -421,9 +420,7 @@
   <!-- ⚫ Footer -->
   <footer class="footer">
     <div class="container flex-between">
-      <p data-i18n="footer_copy">
-        © <span id="year"></span> أبو بكر للإنارة — جميع الحقوق محفوظة
-      </p>
+      <p id="footer-copy"></p>
       <p class="footer-dev">
         <span data-i18n="footer_dev_by">تصميم وتنفيذ:</span> <span>Issa / Tech Minds</span>
       </p>
