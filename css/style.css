@@ -637,65 +637,7 @@ body {
   }
 }
 
-/* Responsive */
-@media (max-width: 960px) {
-  .hero-content {
-    grid-template-columns: minmax(0, 1fr);
-    padding-top: 3rem;
-  }
-
-  .hero {
-    height: auto;
-    padding-bottom: 3rem;
-  }
-
-  .hero-lamps {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .about-grid,
-  .contact-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .topbar {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    flex-direction: column;
-    background: rgba(15, 23, 42, 0.98);
-    transform: translateY(-120%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .nav-links.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-link {
-    padding-inline: 1.5rem;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8rem;
-  }
-  /* =======================
+/* =======================
    🌌 Intro Overlay
    ======================= */
 #intro-overlay {
@@ -716,6 +658,7 @@ body {
   position: relative;
   text-align: center;
   color: #f9fafb;
+  padding: 1.5rem;
 }
 
 .intro-inner h1 {
@@ -895,4 +838,62 @@ body {
   display: block;
 }
 
+/* Responsive */
+@media (max-width: 960px) {
+  .hero-content {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 3rem;
+  }
+
+  .hero {
+    height: auto;
+    padding-bottom: 3rem;
+  }
+
+  .hero-lamps {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.98);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    padding-inline: 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
 }
