@@ -61,13 +61,6 @@ body {
 
 .topbar {
   display: none;
-  background: rgba(2, 6, 23, 0.95);
-  color: var(--text-muted);
-  font-size: 0.82rem;
-  padding: 0.35rem 0;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-  z-index: 30;
-  position: relative;
 }
 
 .topbar-contact {
