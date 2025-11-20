@@ -362,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         introOverlay.classList.remove("playing");
         introOverlay.classList.add("hidden");
-      }, 1400);
+      }, 3300);
     });
   }
 
