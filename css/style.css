@@ -60,7 +60,7 @@ body {
 /* ====== TOPBAR ====== */
 
 .topbar {
-  display: none;
+  display: none; /* مخفي عشان الصورة تبين كامل */
 }
 
 .topbar-contact {
@@ -233,7 +233,7 @@ body {
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: saturate(1.1) brightness(0.55);
+  filter: saturate(1.1) brightness(0.55); /* فتحنا الصورة */
   transform: scale(1.04);
 }
 
@@ -305,8 +305,6 @@ body {
   text-decoration: none;
   margin-top: 0.7rem;
 }
-
-/* (شيلنا البادجات من الهيرو) */
 
 /* ====== LAMPS (Chandeliers) ====== */
 
@@ -934,10 +932,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .topbar {
-    display: none;
-  }
-
   .navbar .container {
     padding-inline: 1.2rem;
   }
@@ -984,10 +978,6 @@ body {
 
   .hero-text p {
     font-size: 0.9rem;
-  }
-
-  .hero-badges span {
-    font-size: 0.76rem;
   }
 
   .lamp-cluster {
