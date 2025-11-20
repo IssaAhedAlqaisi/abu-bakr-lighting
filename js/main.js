@@ -350,8 +350,8 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const text =
           currentLang === "ar"
-            ? "اهلا بكم بشركة يوسف ابو بكر للانارة"
-            : "Welcome to Youssef Abu Bakr Lighting";
+            ? "Welcome"
+            : " ";
         const utter = new SpeechSynthesisUtterance(text);
         utter.lang = currentLang === "ar" ? "ar-SA" : "en-US";
         window.speechSynthesis.speak(utter);
