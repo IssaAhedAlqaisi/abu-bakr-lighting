@@ -350,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const text =
           currentLang === "ar"
-            ? "Welcome"
+            ? ""
             : " ";
         const utter = new SpeechSynthesisUtterance(text);
         utter.lang = currentLang === "ar" ? "ar-SA" : "en-US";
