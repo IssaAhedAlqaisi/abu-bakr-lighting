@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       hero_subtitle:
         "أبو بكر للإنارة — تشكيلة ضخمة من الثريات، السبوتات، والإنارة المخفية لتصميم منازل، فلل ومحلات تجارية بأعلى درجات الفخامة.",
       hero_cta_primary: "شاهد مجموعتنا",
-      hero_cta_secondary: "احجز استشارة إنارة",
+      hero_cta_secondary: "تواصل معنا",
       hero_badge_years: "+10 سنوات خبرة",
       hero_badge_projects: "+300 مشروع منجز",
 
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       hero_subtitle:
         "Abu Bakr Lighting — a wide collection of chandeliers, spotlights and hidden lighting for homes, villas and commercial spaces.",
       hero_cta_primary: "View our collection",
-      hero_cta_secondary: "Book a lighting consultation",
+      hero_cta_secondary: "Contact us",
       hero_badge_years: "10+ years of experience",
       hero_badge_projects: "300+ completed projects",
 
@@ -346,12 +346,12 @@ document.addEventListener("DOMContentLoaded", () => {
     introBtn.addEventListener("click", () => {
       introOverlay.classList.add("playing");
 
-      // صوت ترحيبي (لو المتصفح سامح)
+      // صوت ترحيبي باسم يوسف أبو بكر للإنارة
       try {
         const text =
           currentLang === "ar"
-            ? "مرحبًا، أنا نورك. كيف تريد أن أغير حياتك اليوم؟"
-            : "Welcome, I am your light. How would you like me to change your space today?";
+            ? "اهلا بكم بشركة يوسف ابو بكر للانارة"
+            : "Welcome to Youssef Abu Bakr Lighting";
         const utter = new SpeechSynthesisUtterance(text);
         utter.lang = currentLang === "ar" ? "ar-SA" : "en-US";
         window.speechSynthesis.speak(utter);
@@ -359,6 +359,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Speech not supported or blocked.");
       }
 
+      // مدة أطول متناسقة مع الأنيميشن (3.3 ثانية)
       setTimeout(() => {
         introOverlay.classList.remove("playing");
         introOverlay.classList.add("hidden");
