@@ -43,7 +43,7 @@
     </div>
   </div>
 
-  <!-- 🔝 Topbar -->
+  <!-- 🔝 Topbar (مخفي من الـ CSS) -->
   <header class="topbar">
     <div class="container flex-between">
       <div class="topbar-contact">
@@ -62,7 +62,6 @@
       <button id="lang-toggle" class="lang-btn">EN</button>
     </div>
   </header>
-
 
   <!-- 🔻 Navbar -->
   <nav class="navbar">
@@ -113,11 +112,11 @@
                 شاهد مجموعتنا
               </button>
               <!-- زر المعرض -->
-              <button class="btn primary" data-go="gallery">
+              <button class="btn primary" data-go="gallery" data-i18n="hero_cta_gallery">
                 شاهد المعرض
               </button>
               <!-- زر تواصل -->
-              <button class="btn ghost" data-go="contact">
+              <button class="btn ghost" data-go="contact" data-i18n="hero_cta_contact">
                 تواصل معنا
               </button>
             </div>
@@ -235,6 +234,7 @@
               playsinline
               poster="https://i.imgur.com/iD0wrd7.jpeg"
             >
+              <!-- غيّر الفيديو لاحقاً لفيديو قبل/بعد إنارة -->
               <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
               متصفحك لا يدعم تشغيل الفيديو.
             </video>
@@ -389,7 +389,7 @@
           <img src="https://i.imgur.com/xzQESMU.jpeg" alt="إنارة 47" class="gallery-item" />
           <img src="https://i.imgur.com/FZkTPG2.jpeg" alt="إنارة 48" class="gallery-item" />
           <img src="https://i.imgur.com/Qbh5Gdm.jpeg" alt="إنارة 49" class="gallery-item" />
-          <img src="https://i.imgur.com/d11tn3p.jpeg" alt="إنارة 50" class="gallery-item" />
+          <img src="https://i.imgur.com/d11tn3.jpeg"  alt="إنارة 50" class="gallery-item" />
           <img src="https://i.imgur.com/QY2u2jY.jpeg" alt="إنارة 51" class="gallery-item" />
           <img src="https://i.imgur.com/GOlxqf9.jpeg" alt="إنارة 52" class="gallery-item" />
           <img src="https://i.imgur.com/BFwq67r.jpeg" alt="إنارة 53" class="gallery-item" />
@@ -519,14 +519,11 @@
 
   </main>
 
-  <!-- ⚫ Footer -->
+  <!-- ⚫ Footer (بدون "تصميم وتنفيذ") -->
   <footer class="footer">
     <div class="container flex-between footer-inner">
       <p id="footer-copy"></p>
-      <p class="footer-dev">
-        <span data-i18n="footer_dev_by"> <span>
-        <span></span>
-      </p>
+      <p class="footer-dev"></p>
     </div>
   </footer>
 
