@@ -339,8 +339,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 🌌 Intro overlay logic
-  const introOverlay = document.getElementById("intro-overlay");
-  const introBtn = document.getElementById("intro-btn");
 
   if (introOverlay && introBtn) {
     introBtn.addEventListener("click", () => {
