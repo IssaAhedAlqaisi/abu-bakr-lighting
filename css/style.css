@@ -463,6 +463,106 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
+/* الأقسام الرئيسية في الهوم */
+.home-categories {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.categories-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* كرت القسم */
+.category-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+/* الهيدر اللي بتكبس عليه */
+.category-header {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.98rem;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.category-header i {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+/* المحتوى (الأنواع الفرعية) */
+.category-body {
+  padding: 0 1rem 0.8rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: none;
+}
+
+.category-card.open .category-body {
+  display: block;
+}
+
+.category-card.open .category-header i {
+  transform: rotate(180deg);
+}
+
+/* زر النوع الفرعي */
+.subcat-link {
+  width: 100%;
+  text-align: right;
+  border: none;
+  background: transparent;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+}
+
+.subcat-link:last-child {
+  border-bottom: none;
+}
+
+.subcat-link:hover {
+  color: var(--accent-strong);
+}
+
+/* معرض القسم الفرعي */
+.subcat-gallery {
+  display: none;
+  background: #ffffff;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.subcat-gallery.active {
+  display: block;
+}
+
+.back-btn {
+  margin-bottom: 1rem;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: var(--text-main);
+}
+
+/* خلي شبكة الصور تستعمل نفس ستايل .gallery-grid القديم */
+.subcat-gallery .gallery-grid img {
+  cursor: zoom-in;
+}
+
+
+
 .product-card {
   background: #ffffff;
   border-radius: 18px;
