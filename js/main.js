@@ -10,18 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinksContainer = document.getElementById("nav-links");
   const footerCopy = document.getElementById("footer-copy");
 
-  const backHomeBtn = document.getElementById("back-home-btn");
-  const sections = document.querySelectorAll(".page-section");
-  const homeSection = document.getElementById("page-home");
 
-// كل ما يتغير القسم
-function updateBackButton() {
-  if (!homeSection.classList.contains("active")) {
-    backHomeBtn.style.display = "block";
-  } else {
-    backHomeBtn.style.display = "none";
-  }
-}
 
 // اربط الزر للرجوع للرئيسية
 backHomeBtn.addEventListener("click", () => {
@@ -703,6 +692,19 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   };
 
+
+   const backHomeBtn = document.getElementById("back-home-btn");
+  const sections = document.querySelectorAll(".page-section");
+  const homeSection = document.getElementById("page-home");
+
+// كل ما يتغير القسم
+function updateBackButton() {
+  if (!homeSection.classList.contains("active")) {
+    backHomeBtn.style.display = "block";
+  } else {
+    backHomeBtn.style.display = "none";
+  }
+}
   const subcatGallery = document.getElementById("subcat-gallery");
   const subcatTitle = document.getElementById("subcat-title");
   const subcatDesc = document.getElementById("subcat-desc");
