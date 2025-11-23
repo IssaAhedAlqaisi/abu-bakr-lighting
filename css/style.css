@@ -996,3 +996,28 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+.branches-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.branch-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.branch-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--accent-strong);
+}
+
+.branch-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
