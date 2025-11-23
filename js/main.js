@@ -31,22 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ========= زر الرجوع للرئيسية ========= */
-  function updateBackButton() {
-    if (!backHomeBtn || !homeSection) return;
-    if (homeSection.classList.contains("active")) {
-      backHomeBtn.style.display = "none";
-    } else {
-      backHomeBtn.style.display = "block";
-    }
-  }
+// خليه دايماً ظاهر بكل الأقسام
+function updateBackButton() {
+  backHomeBtn.style.display = "block";
+}
 
-  if (backHomeBtn) {
-    backHomeBtn.addEventListener("click", () => {
-      activateSection("home");
-    });
-  }
-
-  updateBackButton();
+// نادِ الفنكشن أول مرة
+updateBackButton();
 
   /* ========= التنقّل من المنيو ========= */
   navLinks.forEach((link) => {
