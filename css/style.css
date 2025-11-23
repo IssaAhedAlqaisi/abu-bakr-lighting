@@ -76,25 +76,39 @@ body {
 
 /* ====== TOPBAR (مخفي) ====== */
 
+/* 🔹 نخلي التوب بار بس كـ حاوي لزر اللغة، بدون ارتفاع فعلي */
 .topbar {
-  display: flex;
-  justify-content: flex-end;
-  background: transparent;
-  padding: 4px 1.5rem 0;
+  position: fixed;
+  top: 6px;
+  right: 0;
+  left: 0;
+  height: 0;                  /* ما يعمل مساحة بيضا */
+  z-index: 50;                /* فوق النافبار */
+  pointer-events: none;       /* ما يمنع الضغط على الأشياء تحته */
 }
-
 /* خبّينا معلومات الاتصال لو مش حاببها */
 .topbar-contact {
   display: none;
 }
+/* حاوية التوب بار */
+.topbar .container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: flex-end;  /* زر اللغة يروح يمين */
+}
 
+/* 🔹 زر التحويل عربي / EN */
 .lang-btn {
+  pointer-events: auto;        /* يرجع يستقبل كليك */
+  position: relative;
   border-radius: 999px;
   border: 1px solid #d4a017;
-  background: transparent;
-  color: #d4a017;
+  background: rgba(0, 0, 0, 0.78);
+  color: #facc15;
   font-size: 0.8rem;
-  padding: 4px 10px;
+  padding: 4px 12px;
   cursor: pointer;
 }
 
