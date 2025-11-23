@@ -98,12 +98,12 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.9rem;
 }
 
 .brand-logo {
-  width: 32px;
-  height: 32px;
+  width: 55px;
+  height: 55px;
   border-radius: 6px;
   overflow: hidden;
   display: flex;
