@@ -203,14 +203,14 @@ body {
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: saturate(1.1) brightness(0.55);
-  transform: scale(1.04);
+  filter: saturate(1.05) brightness(0.9);
+  transform: scale(1.02);
 }
 
+/* شلنا الضباب الداكن */
 .hero-overlay {
   background: none !important;
 }
-
 
 .hero-content {
   position: relative;
@@ -220,7 +220,7 @@ body {
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: 2.4rem;
   align-items: center;
-  padding: 5rem  0 3rem;
+  padding: 5rem 0 3rem;
 }
 
 .hero-text h1 {
@@ -277,11 +277,25 @@ body {
 /* ====== LAMPS (Chandeliers) ====== */
 
 .hero-lamps {
+  position: relative;        /* عشان الحبل يتثبت عليها */
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;          /* نزلناهم شوي لتحت */
+}
+
+/* حبل واحد متدلي لكل الثريات */
+.hero-lamps::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 80px;
+  transform: translateX(-50%);
+  background: rgba(148, 163, 184, 0.6);
 }
 
 .lamp-cluster {
@@ -661,16 +675,6 @@ body {
     opacity: 1;
   }
 }
-.hero-lamps::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  width: 2px;
-  height: 80px;
-  transform: translateX(-50%);
-  background: rgba(148, 163, 184, 0.6);
-}
 
 /* ====== LIGHT WIZARD ====== */
 
@@ -809,7 +813,6 @@ body {
   }
 
   .hero-lamps {
-    position: relative;
     flex-direction: row;
     justify-content: center;
   }
