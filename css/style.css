@@ -77,17 +77,25 @@ body {
 /* ====== TOPBAR (مخفي) ====== */
 
 .topbar {
-  display: none;
+  display: flex;
+  justify-content: flex-end;
+  background: transparent;
+  padding: 4px 1.5rem 0;
 }
 
 .lang-btn {
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: transparent;
-  color: var(--accent);
-  padding: 0.25rem 0.8rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  border: 1px solid #d4a017;
+  background: transparent;
+  color: #d4a017;
+  font-size: 0.8rem;
+  padding: 4px 10px;
   cursor: pointer;
+}
+
+.lang-btn:hover {
+  background: #d4a017;
+  color: #111;
 }
 
 /* ====== NAVBAR ====== */
