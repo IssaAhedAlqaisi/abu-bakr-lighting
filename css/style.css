@@ -800,23 +800,24 @@ body {
 
 .back-home-btn {
   position: fixed;
-  top: 64px;
-  left: 50%;              /* وسط الشاشة أفقياً */
+  top: 64px;            /* مباشرة تحت النافبار */
+  left: 50%;
   transform: translateX(-50%);
   z-index: 999;
   background: #d4a017;
   color: #111;
-  padding: 8px 16px;
+  padding: 10px 26px;
   border: none;
   border-radius: 999px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(212, 160, 23, 0.35);
-  transition: 0.2s ease;
-  display: none; /* يبين بس بالأقسام غير الرئيسية عن طريق الجافاسكربت */
+  box-shadow: 0 6px 18px rgba(212, 160, 23, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  display: none; /* مخفي بالرئيسية – الجافاسكربت رح يبينه بباقي الصفحات */
 }
 
 .back-home-btn:hover {
+  transform: translateX(-50%) translateY(-1px);
   background: #c18c00;
 }
 
@@ -905,7 +906,9 @@ body {
 @media (max-width: 768px) {
   .navbar .container {
     padding-inline: 1.2rem;
+    position: relative; /* عشان نقدر نثبّت الزر جوّاها */
   }
+
 
   .brand-text span {
     font-size: 0.9rem;
@@ -916,9 +919,30 @@ body {
   }
 
   .nav-toggle {
-    display: block;
+    display: flex;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: #d4a017;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   }
+.nav-toggle i {
+color: #111827;
+}
 
+
+    /* نخلي اللوجو/الاسم على اليمين */
+.brand {
+margin-inline-start: auto;
+}
 .nav-links {
   position: absolute;
   top: 100%;
