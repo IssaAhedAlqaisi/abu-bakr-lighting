@@ -1,53 +1,54 @@
-// js/main.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".page-section");
   const goButtons = document.querySelectorAll("[data-go]");
   const langToggleBtn = document.getElementById("lang-toggle");
-  const preloader = document.getElementById("preloader");
   const navToggle = document.getElementById("nav-toggle");
   const navLinksContainer = document.getElementById("nav-links");
   const footerCopy = document.getElementById("footer-copy");
+  const backHomeBtn = document.getElementById("back-home-btn");
+  const homeSection = document.getElementById("page-home");
 
-
-
-// اربط الزر للرجوع للرئيسية
-backHomeBtn.addEventListener("click", () => {
-  sections.forEach(s => s.classList.remove("active"));
-  homeSection.classList.add("active");
-  updateBackButton();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// نادِ الفنكشن أول مرة
-updateBackButton();
-
-  // 🔁 Preloader
-  if (preloader) {
-    setTimeout(() => {
-      preloader.style.opacity = "0";
-      setTimeout(() => (preloader.style.display = "none"), 320);
-    }, 900);
-  }
-
-  // 🧭 Switch sections
+  /* ========= تفعيل قسم معيّن ========= */
   function activateSection(sectionName) {
     sections.forEach((sec) => {
       sec.classList.toggle("active", sec.id === `page-${sectionName}`);
     });
+
     navLinks.forEach((link) => {
       link.classList.toggle(
         "active",
         link.getAttribute("data-section") === sectionName
       );
     });
+
     if (navLinksContainer) {
       navLinksContainer.classList.remove("open");
     }
+
+    updateBackButton();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  /* ========= زر الرجوع للرئيسية ========= */
+  function updateBackButton() {
+    if (!backHomeBtn || !homeSection) return;
+    if (homeSection.classList.contains("active")) {
+      backHomeBtn.style.display = "none";
+    } else {
+      backHomeBtn.style.display = "block";
+    }
+  }
+
+  if (backHomeBtn) {
+    backHomeBtn.addEventListener("click", () => {
+      activateSection("home");
+    });
+  }
+
+  updateBackButton();
+
+  /* ========= التنقّل من المنيو ========= */
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       const target = link.getAttribute("data-section");
@@ -55,6 +56,7 @@ updateBackButton();
     });
   });
 
+  /* ========= أزرار "اذهب إلى" في الهيرو ========= */
   goButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const target = btn.getAttribute("data-go");
@@ -62,24 +64,28 @@ updateBackButton();
     });
   });
 
-  // 🍔 Mobile nav toggle
+  /* ========= منيو الموبايل ========= */
   if (navToggle && navLinksContainer) {
     navToggle.addEventListener("click", () => {
       navLinksContainer.classList.toggle("open");
     });
   }
 
-  // 🖼️ Gallery Lightbox
+  /* ========= Lightbox للصور ========= */
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.querySelector(".lightbox-img");
   const lightboxClose = document.querySelector(".lightbox-close");
 
+  function openLightbox(src) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightbox.classList.add("open");
+  }
+
   if (lightbox && lightboxImg && lightboxClose) {
+    // صور المعرض الأساسية
     document.querySelectorAll(".gallery-item").forEach((img) => {
-      img.addEventListener("click", () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add("open");
-      });
+      img.addEventListener("click", () => openLightbox(img.src));
     });
 
     lightboxClose.addEventListener("click", () => {
@@ -93,7 +99,8 @@ updateBackButton();
     });
   }
 
-  // 🌐 Language data
+  /* ========= تعدّد اللغات (عربي / إنجليزي) ========= */
+
   let currentLang = "ar";
 
   const translations = {
@@ -108,14 +115,6 @@ updateBackButton();
       nav_gallery: "المعرض",
       nav_projects: "أعمالنا",
       nav_contact: "تواصل",
-
-      hero_title: "إضاءة فاخرة تصنع تفاصيل بيتك",
-      hero_subtitle:
-        "أبو بكر للإنارة — تشكيلة ضخمة من الثريات، السبوتات، والإنارة المخفية لتصميم منازل، فلل ومحلات تجارية بأعلى درجات الفخامة.",
-      hero_cta_primary: "شاهد مجموعتنا",
-      hero_cta_secondary: "تواصل معنا",
-      hero_badge_years: "+10 سنوات خبرة",
-      hero_badge_projects: "+300 مشروع منجز",
 
       about_title: "من نحن",
       about_subtitle: "نبذة عن أبو بكر للإنارة",
@@ -167,37 +166,7 @@ updateBackButton();
       contact_form_title: "تواصل سريع عبر واتساب",
       contact_form_desc:
         "اضغط على الزر أدناه لبدء محادثة واتساب معنا مباشرة، وأرسل لنا صورة الغرفة أو المكان لنقترح لك أنسب إنارة.",
-      contact_whatsapp_btn: "تواصل عبر واتساب",
-
-      footer_dev_by: "تصميم وتنفيذ:",
-
-      // Wizard
-      wizard_title: "ابدأ رحلتك الضوئية",
-      wizard_subtitle:
-        "أجب عن 3 أسئلة بسيطة، ودع نبضة الضوء تقترح لك أجواء الإنارة المناسبة.",
-
-      wizard_q1_title: "ما لون مزاجك الآن؟",
-      wizard_q1_desc: "اختر أقرب لون لإحساسك الحالي.",
-      wizard_mood_blue: "أزرق — هادئ",
-      wizard_mood_red: "أحمر — نشيط",
-      wizard_mood_grey: "رمادي — محايد",
-
-      wizard_q2_title: "ما نوع المساحة التي تريد إنارتها؟",
-      wizard_q2_desc: "اختر نوع المكان الذي تفكر فيه.",
-      wizard_space_home: "منزل",
-      wizard_space_office: "مكتب",
-      wizard_space_shop: "متجر",
-      wizard_space_factory: "مصنع",
-
-      wizard_q3_title: "متى تشعر بالسعادة أكثر؟",
-      wizard_q3_desc: "اختر الوقت الأقرب لقلبك.",
-      wizard_time_morning: "صباحًا",
-      wizard_time_evening: "مساءً",
-      wizard_time_night: "ليلاً",
-
-      wizard_btn_generate: "إطلاق نبضة الضوء",
-      wizard_error: "من فضلك أجب عن جميع الأسئلة أولاً.",
-      wizard_result_title: "نبضتك الضوئية"
+      contact_whatsapp_btn: "تواصل عبر واتساب"
     },
 
     en: {
@@ -211,14 +180,6 @@ updateBackButton();
       nav_gallery: "Gallery",
       nav_projects: "Projects",
       nav_contact: "Contact",
-
-      hero_title: "Premium lighting that shapes your home's details",
-      hero_subtitle:
-        "Abu Bakr Lighting — a wide collection of chandeliers, spotlights and hidden lighting for homes, villas and commercial spaces.",
-      hero_cta_primary: "View our collection",
-      hero_cta_secondary: "Contact us",
-      hero_badge_years: "10+ years of experience",
-      hero_badge_projects: "300+ completed projects",
 
       about_title: "About us",
       about_subtitle: "Who we are",
@@ -272,38 +233,7 @@ updateBackButton();
       contact_form_title: "Fast contact on WhatsApp",
       contact_form_desc:
         "Click the button below to start a WhatsApp chat with us and send a photo of your room so we can suggest the best lighting.",
-      contact_whatsapp_btn: "Contact on WhatsApp",
-
-      footer_dev_by: "Designed & developed by:",
-
-      // Wizard
-      wizard_title: "Start your light journey",
-      wizard_subtitle:
-        "Answer 3 simple questions and let the light pulse suggest the right mood for your space.",
-
-      wizard_q1_title: "What is your mood color now?",
-      wizard_q1_desc:
-        "Pick the color that feels closest to your current mood.",
-      wizard_mood_blue: "Blue — Calm",
-      wizard_mood_red: "Red — Energetic",
-      wizard_mood_grey: "Grey — Neutral",
-
-      wizard_q2_title: "What type of space do you want to light?",
-      wizard_q2_desc: "Choose the kind of space you're thinking of.",
-      wizard_space_home: "Home",
-      wizard_space_office: "Office",
-      wizard_space_shop: "Shop",
-      wizard_space_factory: "Factory",
-
-      wizard_q3_title: "When do you feel happiest?",
-      wizard_q3_desc: "Choose the time that feels most like you.",
-      wizard_time_morning: "Morning",
-      wizard_time_evening: "Evening",
-      wizard_time_night: "Night",
-
-      wizard_btn_generate: "Generate light pulse",
-      wizard_error: "Please answer all questions first.",
-      wizard_result_title: "Your light pulse"
+      contact_whatsapp_btn: "Contact on WhatsApp"
     }
   };
 
@@ -330,7 +260,6 @@ updateBackButton();
       }
     }
 
-    // dir + lang
     if (lang === "ar") {
       document.documentElement.lang = "ar";
       document.documentElement.dir = "rtl";
@@ -351,150 +280,7 @@ updateBackButton();
     });
   }
 
-  // 🌌 Intro overlay logic
-
-  if (introOverlay && introBtn) {
-    introBtn.addEventListener("click", () => {
-      introOverlay.classList.add("playing");
-
-      // صوت ترحيبي باسم يوسف أبو بكر للإنارة
-      try {
-        const text =
-          currentLang === "ar"
-            ? ""
-            : " ";
-        const utter = new SpeechSynthesisUtterance(text);
-        utter.lang = currentLang === "ar" ? "ar-SA" : "en-US";
-        window.speechSynthesis.speak(utter);
-      } catch (e) {
-        console.log("Speech not supported or blocked.");
-      }
-
-      // مدة أطول متناسقة مع الأنيميشن (3.3 ثانية)
-      setTimeout(() => {
-        introOverlay.classList.remove("playing");
-        introOverlay.classList.add("hidden");
-      }, 3300);
-    });
-  }
-
-  // 🔮 Light pulse wizard logic
-  const wizardOptionsContainers = document.querySelectorAll(".wizard-options");
-  const wizardGenerateBtn = document.getElementById("wizard-generate");
-  const wizardError = document.getElementById("wizard-error");
-  const wizardResult = document.getElementById("wizard-result");
-  const wizardResultText = document.getElementById("wizard-result-text");
-  const wizardVideo = document.getElementById("wizard-video");
-
-  const wizardState = {
-    mood: null,
-    space: null,
-    time: null
-  };
-
-  // اختيار الخيارات
-  wizardOptionsContainers.forEach((container) => {
-    const questionKey = container.getAttribute("data-question");
-    const options = container.querySelectorAll(".wizard-option");
-
-    options.forEach((opt) => {
-      opt.addEventListener("click", () => {
-        options.forEach((o) => o.classList.remove("active"));
-        opt.classList.add("active");
-
-        const value = opt.getAttribute("data-value");
-        wizardState[questionKey] = value;
-      });
-    });
-  });
-
-  function buildDescription(lang, state) {
-    const moodMap = {
-      ar: {
-        blue: "مزاج هادئ يميل للأمان والسكينة",
-        red: "مزاج نشيط يحب الحركة والإنجاز",
-        grey: "مزاج متوازن ومحايد يحب البساطة"
-      },
-      en: {
-        blue: "a calm mood seeking safety and peace",
-        red: "an active mood that loves energy and productivity",
-        grey: "a balanced, neutral mood that favors simplicity"
-      }
-    };
-
-    const spaceMap = {
-      ar: {
-        home: "مساحة منزلية تحتاج لدفء ولمسة مريحة",
-        office: "مساحة عمل تحتاج لتركيز ووضوح",
-        shop: "متجر يحتاج لإبراز المنتجات وجذب الانتباه",
-        factory: "مساحة عملية تحتاج لإنارة قوية وواضحة"
-      },
-      en: {
-        home: "a home space that needs warmth and comfort",
-        office: "a workspace that needs focus and clarity",
-        shop: "a shop that needs to highlight products and attract attention",
-        factory: "a functional space that needs strong, clear lighting"
-      }
-    };
-
-    const timeMap = {
-      ar: {
-        morning: "تستمتع بضوء الصباح اللطيف والبدايات الجديدة",
-        evening: "تحب أجواء المساء الدافئة بعد يوم طويل",
-        night: "تعشق هدوء الليل ولمسات الضوء الهادئة"
-      },
-      en: {
-        morning: "you enjoy the soft light of morning and fresh starts",
-        evening: "you love the warm mood of evenings after a long day",
-        night: "you adore the calm of night with subtle lighting touches"
-      }
-    };
-
-    if (lang === "ar") {
-      return `
-        يبدو أنك تمتلك ${moodMap.ar[state.mood]}، وتفكر في ${spaceMap.ar[state.space]}،
-        و ${timeMap.ar[state.time]}.<br><br>
-        نقترح لك مزيجًا من إنارة أساسية ناعمة، مع سبوتات موجهة ولمسات ليد مخفي
-        لخلق "نبضة ضوء" خاصة تشبه شخصيتك ومزاجك. شاهد الفيديو لترى كيف يمكن
-        أن تتحول مساحتك من عادية إلى مضيئة بالحياة.
-      `;
-    } else {
-      return `
-        It looks like you have ${moodMap.en[state.mood]}, thinking about ${spaceMap.en[state.space]},
-        and ${timeMap.en[state.time]}.<br><br>
-        We recommend a mix of soft main lighting, focused spotlights and hidden LED accents
-        to create a unique "light pulse" that matches your personality and mood.
-        Watch the video to feel how your space can transform from ordinary to full of life.
-      `;
-    }
-  }
-
-  if (wizardGenerateBtn) {
-    wizardGenerateBtn.addEventListener("click", () => {
-      if (!wizardState.mood || !wizardState.space || !wizardState.time) {
-        if (wizardError) wizardError.style.display = "block";
-        return;
-      }
-      if (wizardError) wizardError.style.display = "none";
-
-      const lang = currentLang;
-      if (wizardResultText) {
-        wizardResultText.innerHTML = buildDescription(lang, wizardState);
-      }
-
-      if (wizardResult) wizardResult.style.display = "block";
-
-      if (wizardVideo) {
-        wizardVideo.currentTime = 0;
-        wizardVideo.play().catch(() => {});
-      }
-
-      wizardResult.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-  }
-});
-document.addEventListener("DOMContentLoaded", function () {
-  /* ========== فتح/إغلاق الكروت (الأقسام الرئيسية) ========== */
+  /* ========= كروت الأقسام (أكورديون) ========= */
   const categoryCards = document.querySelectorAll(".category-card");
 
   categoryCards.forEach((card) => {
@@ -502,16 +288,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!header) return;
 
     header.addEventListener("click", () => {
-      // لو حابب تخلي كرت واحد بس مفتوح، فك الكومنت عن هدول:
-      // categoryCards.forEach(c => {
-      //   if (c !== card) c.classList.remove("open");
-      // });
-
       card.classList.toggle("open");
     });
   });
 
-  /* ========== بيانات الصور لكل قسم فرعي ========== */
+  /* ========= بيانات المعرض لكل قسم فرعي ========= */
   const galleryData = {
     // الثريات
     "thu-modern": {
@@ -520,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/jFEsyhC.jpeg",
         "https://i.imgur.com/amXvUUL.jpeg"
-      ],
+      ]
     },
     "thu-crystal": {
       title: "ثريات كريستال",
@@ -528,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/iD0wrd7.jpeg",
         "https://i.imgur.com/HvHtGm.jpeg"
-      ],
+      ]
     },
     "thu-stairs": {
       title: "ثريات مطالع الدرج",
@@ -537,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://i.imgur.com/GLnZ7LF.jpeg",
         "https://i.imgur.com/RLGHNSb.jpeg",
         "https://i.imgur.com/xf56xsh.jpeg"
-      ],
+      ]
     },
     "thu-pendants": {
       title: "معلّقات",
@@ -546,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://i.imgur.com/hb9FABk.jpeg",
         "https://i.imgur.com/VdGsM0H.jpeg",
         "https://i.imgur.com/KkudgPu.jpeg"
-      ],
+      ]
     },
     "thu-floor-table": {
       title: "فلور لامب وتيبل لامب",
@@ -554,7 +335,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/6ayUpdX.jpeg",
         "https://i.imgur.com/cjsWJmn.jpeg"
-      ],
+      ]
     },
 
     // إنارة جدارية
@@ -564,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/ShsRYzS.jpeg",
         "https://i.imgur.com/euTlcGo.jpeg"
-      ],
+      ]
     },
     "wall-solar": {
       title: "إنارة جدارية بالطاقة الشمسية",
@@ -572,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/UtyBbxR.jpeg",
         "https://i.imgur.com/ZaPj0mv.jpeg"
-      ],
+      ]
     },
 
     // إنارة داخلية
@@ -582,14 +363,14 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/h74UouB.jpeg",
         "https://i.imgur.com/qmsSYer.jpeg"
-      ],
+      ]
     },
     "in-magnetic": {
       title: "إنارة مجناتيك",
       desc: "مسارات مغناطيسية بإضاءات متعددة قابلة للتركيب والتغيير.",
       images: [
         "https://i.imgur.com/GOlxqf9.jpeg"
-      ],
+      ]
     },
     "in-smart": {
       title: "إنارة مجناتيك سمارت",
@@ -597,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/GOlxqf9.jpeg",
         "https://i.imgur.com/UtyBbxR.jpeg"
-      ],
+      ]
     },
     "in-frame": {
       title: "فريم للسبوت",
@@ -605,7 +386,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/Inei5Eg.jpeg",
         "https://i.imgur.com/iNnI4mu.jpeg"
-      ],
+      ]
     },
 
     // إنارة خارجية
@@ -615,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/LI7gtLh.jpeg",
         "https://i.imgur.com/asbN7ky.jpeg"
-      ],
+      ]
     },
     "out-garden": {
       title: "إنارة أرضية وحدائق",
@@ -623,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/LSfmuaV.jpeg",
         "https://i.imgur.com/K4i6ttw.jpeg"
-      ],
+      ]
     },
     "out-flood": {
       title: "كشافات لِد خارجية",
@@ -632,7 +413,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://i.imgur.com/UvAJH6P.jpeg",
         "https://i.imgur.com/ZaPj0mv.jpeg",
         "https://i.imgur.com/TqZ9llQ.jpeg"
-      ],
+      ]
     },
     "out-street": {
       title: "إنارة شوارع",
@@ -641,7 +422,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://i.imgur.com/ByCzTVw.jpeg",
         "https://i.imgur.com/F0sju2M.jpeg",
         "https://i.imgur.com/OwzYC6D.jpeg"
-      ],
+      ]
     },
 
     // لمبات
@@ -651,7 +432,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/h74UouB.jpeg",
         "https://i.imgur.com/tUaJh8c.jpeg"
-      ],
+      ]
     },
     "bulb-neon": {
       title: "لمبات نيون",
@@ -659,7 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/tUaJh8c.jpeg",
         "https://i.imgur.com/h74UouB.jpeg"
-      ],
+      ]
     },
     "bulb-spot": {
       title: "سبوت لِد",
@@ -667,7 +448,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/Inei5Eg.jpeg",
         "https://i.imgur.com/iNnI4mu.jpeg"
-      ],
+      ]
     },
     "bulb-louver": {
       title: "لوفر لِد 60×60",
@@ -675,7 +456,7 @@ document.addEventListener("DOMContentLoaded", function () {
       images: [
         "https://i.imgur.com/ImXt2UA.jpeg",
         "https://i.imgur.com/qmsSYer.jpeg"
-      ],
+      ]
     },
 
     // مراوح وشفاطات
@@ -688,29 +469,15 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://i.imgur.com/nVGryNq.jpeg",
         "https://i.imgur.com/Xk3XIK0.jpeg",
         "https://i.imgur.com/1nXHeYK.jpeg"
-      ],
-    },
+      ]
+    }
   };
 
-
-   const backHomeBtn = document.getElementById("back-home-btn");
-  const sections = document.querySelectorAll(".page-section");
-  const homeSection = document.getElementById("page-home");
-
-// كل ما يتغير القسم
-function updateBackButton() {
-  if (!homeSection.classList.contains("active")) {
-    backHomeBtn.style.display = "block";
-  } else {
-    backHomeBtn.style.display = "none";
-  }
-}
   const subcatGallery = document.getElementById("subcat-gallery");
   const subcatTitle = document.getElementById("subcat-title");
   const subcatDesc = document.getElementById("subcat-desc");
   const subcatImages = document.getElementById("subcat-images");
   const backToCatsBtn = document.getElementById("back-to-cats");
-
   const subcatLinks = document.querySelectorAll(".subcat-link");
 
   subcatLinks.forEach((btn) => {
@@ -719,33 +486,31 @@ function updateBackButton() {
       const data = galleryData[key];
       if (!data) return;
 
-      // عبي العنوان والوصف
       subcatTitle.textContent = data.title;
       subcatDesc.textContent = data.desc;
 
-      // عبي الصور
       subcatImages.innerHTML = "";
       data.images.forEach((url) => {
         const img = document.createElement("img");
         img.src = url;
         img.alt = data.title;
         img.classList.add("gallery-item");
+        img.addEventListener("click", () => openLightbox(url));
         subcatImages.appendChild(img);
       });
 
-      // إظهار المعرض الفرعي
-      subcatGallery.classList.add("active");
-
-      // سكر أي لايت بوكس قديم لو عندك كود إله (اختياري)
-      // Scroll للمعرض
-      subcatGallery.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (subcatGallery) {
+        subcatGallery.classList.add("active");
+        subcatGallery.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   });
 
-  // زر الرجوع للأقسام الرئيسية
   if (backToCatsBtn) {
     backToCatsBtn.addEventListener("click", () => {
-      subcatGallery.classList.remove("active");
+      if (subcatGallery) {
+        subcatGallery.classList.remove("active");
+      }
       const catsSection = document.querySelector(".home-categories");
       if (catsSection) {
         catsSection.scrollIntoView({ behavior: "smooth", block: "start" });
