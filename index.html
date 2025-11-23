@@ -86,154 +86,188 @@
   <main>
 
     <!-- 🏠 الرئيسية -->
-    <section id="page-home" class="page-section active">
-      <div class="hero">
-        <!-- خلفية الهيرو -->
-        <div class="hero-bg" style="background-image: url('https://i.imgur.com/iD0wrd7.jpeg');"></div>
-        <div class="hero-overlay"></div>
+<section id="page-home" class="page-section active">
+  <!-- HERO -->
+  <div class="hero">
+    <!-- خلفية الهيرو -->
+    <div class="hero-bg" style="background-image: url('https://i.imgur.com/iD0wrd7.jpeg');"></div>
 
-        <div class="container hero-content">
-          <div class="hero-text">
-            <h1 data-i18n="hero_title">إضاءة فاخرة تصنع تفاصيل بيتك</h1>
-            <p data-i18n="hero_subtitle">
-              أبو بكر للإنارة — تشكيلة ضخمة من الثريات، السبوتات، والإنارة المخفية لتصميم منازل، فلل ومحلات تجارية بأعلى درجات الفخامة.
-            </p>
-            <div class="hero-actions">
-              <!-- زر المنتجات -->
-              <button class="btn primary" data-go="products" data-i18n="hero_cta_primary">
-                شاهد مجموعتنا
-              </button>
-              <!-- زر المعرض -->
-              <button class="btn primary" data-go="gallery" data-i18n="hero_cta_gallery">
-                شاهد المعرض
-              </button>
-              <!-- زر تواصل -->
-              <button class="btn ghost" data-go="contact" data-i18n="hero_cta_contact">
-                تواصل معنا
-              </button>
-            </div>
-          </div>
-
-          <!-- 💡 ثريات بدون خلفية كارد -->
-          <div class="hero-lamps">
-            <div class="lamp-cluster lamp-1">
-              <div class="lamp-wire"></div>
-              <div class="lamp-head"></div>
-              <div class="lamp-bulb flicker"></div>
-              <div class="lamp-glow soft"></div>
-            </div>
-            <div class="lamp-cluster lamp-2">
-              <div class="lamp-wire"></div>
-              <div class="lamp-head wide"></div>
-              <div class="lamp-bulb steady"></div>
-              <div class="lamp-glow strong"></div>
-            </div>
-            <div class="lamp-cluster lamp-3">
-              <div class="lamp-wire"></div>
-              <div class="lamp-head slim"></div>
-              <div class="lamp-bulb pulse"></div>
-              <div class="lamp-glow pulse-glow"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 🔮 قسم اختبار نبضة الضوء -->
-      <div class="container section light-wizard">
-        <div class="section-header">
-          <h2 data-i18n="wizard_title">ابدأ رحلتك الضوئية</h2>
-          <p data-i18n="wizard_subtitle">
-            أجب عن 3 أسئلة بسيطة، ودع "نبضة الضوء" تقترح لك أجواء الإنارة المناسبة.
-          </p>
-        </div>
-
-        <div class="wizard-grid">
-          <!-- السؤال 1 -->
-          <div class="wizard-card">
-            <h3 data-i18n="wizard_q1_title">ما لون مزاجك الآن؟</h3>
-            <p data-i18n="wizard_q1_desc">اختر أقرب لون لإحساسك الحالي.</p>
-            <div class="wizard-options" data-question="mood">
-              <button data-value="blue" class="wizard-option">
-                <span class="color-dot color-blue"></span>
-                <span data-i18n="wizard_mood_blue">أزرق — هادئ</span>
-              </button>
-              <button data-value="red" class="wizard-option">
-                <span class="color-dot color-red"></span>
-                <span data-i18n="wizard_mood_red">أحمر — نشيط</span>
-              </button>
-              <button data-value="grey" class="wizard-option">
-                <span class="color-dot color-grey"></span>
-                <span data-i18n="wizard_mood_grey">رمادي — محايد</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- السؤال 2 -->
-          <div class="wizard-card">
-            <h3 data-i18n="wizard_q2_title">ما نوع المساحة التي تريد إنارتها؟</h3>
-            <p data-i18n="wizard_q2_desc">اختر نوع المكان الذي تفكر فيه.</p>
-            <div class="wizard-options" data-question="space">
-              <button data-value="home" class="wizard-option" data-i18n="wizard_space_home">
-                منزل
-              </button>
-              <button data-value="office" class="wizard-option" data-i18n="wizard_space_office">
-                مكتب
-              </button>
-              <button data-value="shop" class="wizard-option" data-i18n="wizard_space_shop">
-                متجر
-              </button>
-              <button data-value="factory" class="wizard-option" data-i18n="wizard_space_factory">
-                مصنع
-              </button>
-            </div>
-          </div>
-
-          <!-- السؤال 3 -->
-          <div class="wizard-card">
-            <h3 data-i18n="wizard_q3_title">متى تشعر بالسعادة أكثر؟</h3>
-            <p data-i18n="wizard_q3_desc">اختر الوقت الأقرب لقلبك.</p>
-            <div class="wizard-options" data-question="time">
-              <button data-value="morning" class="wizard-option" data-i18n="wizard_time_morning">
-                صباحًا
-              </button>
-              <button data-value="evening" class="wizard-option" data-i18n="wizard_time_evening">
-                مساءً
-              </button>
-              <button data-value="night" class="wizard-option" data-i18n="wizard_time_night">
-                ليلاً
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="wizard-actions">
-          <button id="wizard-generate" class="btn primary" data-i18n="wizard_btn_generate">
-            إطلاق نبضة الضوء
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>إضاءة فاخرة تكمّل تفاصيل بيتك</h1>
+        <p>
+          يوسف أبو بكر للإنارة — تشكيلة واسعة من الثريات، الإنارة الجدارية، الإنارة الداخلية والخارجية، اللمبات، المراوح، المفاتيح الذكية وأكثر.
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary" data-go="products">
+            تصفح المنتجات
           </button>
-          <p id="wizard-error" class="wizard-error" style="display:none;" data-i18n="wizard_error">
-            من فضلك أجب عن جميع الأسئلة أولاً.
-          </p>
-        </div>
-
-        <div id="wizard-result" class="wizard-result" style="display:none;">
-          <h3 data-i18n="wizard_result_title">نبضتك الضوئية</h3>
-          <p id="wizard-result-text"></p>
-          <div class="wizard-video-wrapper">
-            <video
-              id="wizard-video"
-              controls
-              muted
-              playsinline
-              poster="https://i.imgur.com/iD0wrd7.jpeg"
-            >
-              <!-- غيّر الفيديو لاحقاً لفيديو قبل/بعد إنارة -->
-              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-              متصفحك لا يدعم تشغيل الفيديو.
-            </video>
-          </div>
+          <button class="btn primary" data-go="gallery">
+            شاهد المعرض
+          </button>
+          <button class="btn ghost" data-go="contact">
+            تواصل معنا
+          </button>
         </div>
       </div>
-    </section>
+
+      <!-- ثريات على اليمين -->
+      <div class="hero-lamps">
+        <div class="lamp-cluster lamp-1">
+          <div class="lamp-wire"></div>
+          <div class="lamp-head"></div>
+          <div class="lamp-bulb flicker"></div>
+          <div class="lamp-glow soft"></div>
+        </div>
+        <div class="lamp-cluster lamp-2">
+          <div class="lamp-wire"></div>
+          <div class="lamp-head wide"></div>
+          <div class="lamp-bulb steady"></div>
+          <div class="lamp-glow strong"></div>
+        </div>
+        <div class="lamp-cluster lamp-3">
+          <div class="lamp-wire"></div>
+          <div class="lamp-head slim"></div>
+          <div class="lamp-bulb pulse"></div>
+          <div class="lamp-glow pulse-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- الأقسام الرئيسية -->
+  <div class="home-categories section">
+    <div class="container">
+      <div class="section-header">
+        <h2>الأقسام الرئيسية</h2>
+        <p>
+          كل ما تحتاجه من حلول الإنارة والمنتجات الكهربائية في مكان واحد.
+        </p>
+      </div>
+
+      <div class="categories-grid">
+        <!-- 1. الثريات -->
+        <div class="category-card">
+          <h3>الثريات</h3>
+          <ul>
+            <li>ثريات مودرن</li>
+            <li>ثريات كلاسيك</li>
+            <li>ثريات كريستال</li>
+            <li>ثريات حائطية</li>
+            <li>ثريات معلّقة</li>
+            <li>ثريات غرف نوم وصالونات</li>
+          </ul>
+        </div>
+
+        <!-- 2. الإنارة الجدارية -->
+        <div class="category-card">
+          <h3>الإنارة الجدارية</h3>
+          <ul>
+            <li>إنارة جدارية داخلية</li>
+            <li>إنارة جدارية خارجية</li>
+            <li>إنارة جدارية بالطاقة الشمسية</li>
+          </ul>
+        </div>
+
+        <!-- 3. الإنارة الداخلية -->
+        <div class="category-card">
+          <h3>الإنارة الداخلية</h3>
+          <ul>
+            <li>LED Strip (شرائط ديل)</li>
+            <li>إنارة مغناطيسية</li>
+            <li>إنارة مغناطيسية ذكية (Smart)</li>
+            <li>بروفايلات إنارة</li>
+            <li>سبوت فريم + سيلندر</li>
+          </ul>
+        </div>
+
+        <!-- 4. الإنارة الخارجية -->
+        <div class="category-card">
+          <h3>الإنارة الخارجية</h3>
+          <ul>
+            <li>فوانيس خارجية</li>
+            <li>وحدات أرضية</li>
+            <li>كشافات LED</li>
+            <li>إنارة شوارع</li>
+            <li>إنارة المسابح</li>
+            <li>كشافات طاقة شمسية</li>
+          </ul>
+        </div>
+
+        <!-- 5. اللمبات -->
+        <div class="category-card">
+          <h3>اللمبات والسبوتات</h3>
+          <ul>
+            <li>لمبات LED</li>
+            <li>لمبات نيون LED</li>
+            <li>سبوتات LED</li>
+            <li>لوحات 60×60 LED</li>
+            <li>كُلوب LED</li>
+          </ul>
+        </div>
+
+        <!-- 6. شفاطات ومراوح -->
+        <div class="category-card">
+          <h3>شفاطات ومراوح</h3>
+          <ul>
+            <li>شفاطات مطابخ وحمامات</li>
+            <li>مراوح سقفية</li>
+            <li>مراوح حائطية وأرضية</li>
+          </ul>
+        </div>
+
+        <!-- 7. مفاتيح الإنارة -->
+        <div class="category-card">
+          <h3>مفاتيح الإنارة</h3>
+          <ul>
+            <li>مفاتيح عادية</li>
+            <li>مفاتيح ذكية (Smart)</li>
+          </ul>
+        </div>
+
+        <!-- 8. مَاركاتنا -->
+        <div class="category-card">
+          <h3>مَاركاتنا</h3>
+          <ul>
+            <li>تشكيلة من أشهر ماركات الإنارة</li>
+            <li>علامات تجارية مضمونة</li>
+            <li>ضمان على أغلب المنتجات</li>
+          </ul>
+        </div>
+
+        <!-- 9. لوحات التوزيع -->
+        <div class="category-card">
+          <h3>لوحات توزيع الكهرباء</h3>
+          <ul>
+            <li>لوحات توزيع رئيسية</li>
+            <li>لوحات فرعية للشقق والمحال</li>
+            <li>قواطع وحمايات كهربائية</li>
+          </ul>
+        </div>
+
+        <!-- 10. مرايا مضيئة -->
+        <div class="category-card">
+          <h3>مرايا مضيئة</h3>
+          <ul>
+            <li>مرايا حمامات مضيئة</li>
+            <li>مرايا غرف نوم ومكياج</li>
+            <li>أشكال دائرية ومستطيلة</li>
+          </ul>
+        </div>
+
+        <!-- 11. إكسسوارات كهربائية -->
+        <div class="category-card">
+          <h3>إكسسوارات كهربائية</h3>
+          <ul>
+            <li>أفياش ومقابس</li>
+            <li>محولات ووصلات</li>
+            <li>إكسسوارات تركيب وصيانة</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- ℹ️ من نحن -->
     <section id="page-about" class="page-section">
