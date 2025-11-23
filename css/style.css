@@ -8,11 +8,14 @@
   font-display: swap;
 }
 
+/* ====== BASE TYPO ====== */
 body {
   font-family: "Sodfa", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Poppins", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.7;
 }
-
 
 .section-header h2,
 .hero-text h1,
@@ -51,16 +54,7 @@ body {
   height: 100%;
 }
 
-body {
-  font-family: "Sodfa", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", "Poppins", sans-serif;
-  background: var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.7;
-}
-
 /* ====== LAYOUT UTILS ====== */
-
 .container {
   width: 100%;
   max-width: 1180px;
@@ -74,68 +68,26 @@ body {
   justify-content: space-between;
 }
 
-/* ====== TOPBAR (مخفي) ====== */
-
-/* 🔹 نخلي التوب بار بس كـ حاوي لزر اللغة، بدون ارتفاع فعلي */
-.topbar {
-  position: fixed;
-  top: 6px;
-  right: 0;
-  left: 0;
-  height: 0;                  /* ما يعمل مساحة بيضا */
-  z-index: 50;                /* فوق النافبار */
-  pointer-events: none;       /* ما يمنع الضغط على الأشياء تحته */
-}
-/* خبّينا معلومات الاتصال لو مش حاببها */
-.topbar-contact {
-  display: none;
-}
-/* حاوية التوب بار */
-.topbar .container {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  justify-content: flex-end;  /* زر اللغة يروح يمين */
-}
-
-/* 🔹 زر التحويل عربي / EN */
-.lang-btn {
-  pointer-events: auto;        /* يرجع يستقبل كليك */
-  position: relative;
-  border-radius: 999px;
-  border: 1px solid #d4a017;
-  background: rgba(0, 0, 0, 0.78);
-  color: #facc15;
-  font-size: 0.8rem;
-  padding: 4px 12px;
-  cursor: pointer;
-}
-
-.lang-btn:hover {
-  background: #d4a017;
-  color: #111;
-}
-
 /* ====== NAVBAR ====== */
 
 .navbar {
-  position: absolute;   /* بدل sticky */
+  position: absolute;         /* فوق الهيرو مباشرة */
   top: 0;
   right: 0;
   left: 0;
   z-index: 25;
-  background: transparent;        /* كان أبيض */
-  border-bottom: none;            /* بدون خط */
+  background: transparent;    /* بدون شريط أبيض */
+  border-bottom: none;
 }
-
 
 .nav-inner {
   height: 62px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
+/* اللوجو + النص */
 .brand {
   display: flex;
   align-items: center;
@@ -153,14 +105,13 @@ body {
   border: none;
   background: #000000;
 }
+
 .brand-logo-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-
-/* سطر الاسم + اللوجو الصغير */
 .brand-text {
   display: flex;
   flex-direction: column;
@@ -190,6 +141,7 @@ body {
   color: var(--accent); /* ذهبي */
 }
 
+/* روابط الناف */
 .nav-links {
   list-style: none;
   display: flex;
@@ -203,7 +155,6 @@ body {
   position: relative;
   padding: 0.3rem 0;
 }
-
 
 .nav-link::after {
   content: "";
@@ -221,18 +172,41 @@ body {
   width: 100%;
 }
 
+/* حاوية ثلاث شحطات + زر اللغة */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* زر الثلاث شحطات */
 .nav-toggle {
-  display: none;
+  display: none;              /* يظهر بالموبايل فقط */
   border: none;
-  background: #d4a017;         /* خلفية ذهبية */
-  color: #111;                  /* لون الثلاث شحطات */
+  background: #d4a017;
+  color: #111;
   font-size: 1.3rem;
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
   box-shadow: 0 4px 12px rgba(212, 160, 23, 0.4);
-  margin-left: auto;            /* يخليه يروح لأقصى اليسار بالموبايل */
+  cursor: pointer;
 }
 
+/* زر التحويل عربي / EN */
+.lang-btn {
+  border-radius: 999px;
+  border: 1px solid #d4a017;
+  background: rgba(0, 0, 0, 0.78);
+  color: #facc15;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  background: #d4a017;
+  color: #111;
+}
 
 /* ====== SECTIONS ====== */
 
@@ -308,7 +282,6 @@ body {
     rgba(0, 0, 0, 0.55),
     rgba(0, 0, 0, 0.75)
   );
-
   opacity: 0;
   transform: translateY(24px);
   animation: fadeUp 0.9s ease-out forwards;
@@ -322,7 +295,7 @@ body {
 }
 
 .hero-text p {
-  color: #fef3c7; /* نص فاتح يميل للذهبي */
+  color: #fef3c7;
   max-width: 520px;
   margin-bottom: 1.5rem;
   font-size: 0.96rem;
@@ -376,7 +349,6 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-
   opacity: 0;
   transform: translateY(24px);
   animation: fadeUp 0.9s ease-out forwards;
@@ -823,6 +795,31 @@ body {
   margin-bottom: 0.3rem;
 }
 
+.branches-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.branch-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.branch-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--accent-strong);
+}
+
+.branch-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
 /* ====== FOOTER ====== */
 
 .footer {
@@ -854,14 +851,13 @@ body {
   cursor: pointer;
   box-shadow: 0 6px 18px rgba(212, 160, 23, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-  display: none; /* مخفي بالرئيسية – الجافاسكربت رح يبينه بباقي الصفحات */
+  display: none; /* مخفي بالرئيسية – الجافاسكربت بيظهره بباقي الصفحات */
 }
 
 .back-home-btn:hover {
   transform: translateX(-50%) translateY(-1px);
   background: #c18c00;
 }
-
 
 /* ====== FLOATING CONTACT BUTTONS ====== */
 
@@ -947,9 +943,8 @@ body {
 @media (max-width: 768px) {
   .navbar .container {
     padding-inline: 1.2rem;
-    position: relative; /* عشان نقدر نثبّت الزر جوّاها */
+    position: relative;
   }
-
 
   .brand-text span {
     font-size: 0.9rem;
@@ -959,12 +954,19 @@ body {
     font-size: 0.64rem;
   }
 
-  .nav-toggle {
-    display: flex;
+  /* nav-right على الموبايل: شحطات فوق، EN تحت */
+  .nav-right {
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .nav-toggle {
+    display: flex;
     width: 44px;
     height: 44px;
     border-radius: 999px;
@@ -975,41 +977,36 @@ body {
     font-size: 1.4rem;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   }
-.nav-toggle i {
-color: #111827;
-}
 
+  .nav-toggle i {
+    color: #111827;
+  }
 
-    /* نخلي اللوجو/الاسم على اليمين */
-.brand {
-margin-inline-start: 0;
-}
-.nav-links {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: 0;
-  flex-direction: column;
-  background: rgba(0, 0, 0, 0.95); /* شلنا الأبيض وحطينا أسود شفاف */
-  transform: translateY(-120%);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  padding-bottom: 0.6rem;
-  border-bottom: none;
-}
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    padding-bottom: 0.6rem;
+    border-bottom: none;
+  }
 
-.nav-links.open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-.nav-link {
-  padding-inline: 1.5rem;
-  color: #d4a017; /* يخليها ذهبية في الموبايل كمان */
-}
-
+  .nav-link {
+    padding-inline: 1.5rem;
+    color: #d4a017;
+  }
 
   .hero-text h1 {
     font-size: 1.9rem;
@@ -1066,29 +1063,4 @@ margin-inline-start: 0;
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
-
-.branches-grid {
-  display: grid;
-  gap: 1.2rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.branch-card {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 1rem 1.2rem;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-}
-
-.branch-card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-  color: var(--accent-strong);
-}
-
-.branch-card p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
 }
