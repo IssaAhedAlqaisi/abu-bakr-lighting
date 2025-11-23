@@ -814,7 +814,7 @@ body {
 
 .back-home-btn {
   position: fixed;
-  top: 64px;            /* مباشرة تحت النافبار */
+  top: 70px;            /* مباشرة تحت النافبار */
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
@@ -955,7 +955,7 @@ color: #111827;
 
     /* نخلي اللوجو/الاسم على اليمين */
 .brand {
-margin-inline-start: auto;
+margin-inline-start: 0;
 }
 .nav-links {
   position: absolute;
