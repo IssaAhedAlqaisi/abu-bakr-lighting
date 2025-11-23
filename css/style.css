@@ -8,6 +8,20 @@
   font-display: swap;
 }
 
+body {
+  font-family: "Sodfa", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Poppins", sans-serif;
+}
+
+
+.section-header h2,
+.hero-text h1,
+.nav-link,
+.brand-text span {
+  font-family: "Sodfa", system-ui, sans-serif;
+  font-weight: 700;
+}
+
 /* ====== RESET & VARIABLES ====== */
 *,
 *::before,
