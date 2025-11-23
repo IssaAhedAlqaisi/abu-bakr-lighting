@@ -509,3 +509,36 @@ updateBackButton();
     });
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const backHomeBtn = document.getElementById("back-home-btn");
+  const sections = document.querySelectorAll(".page-section");
+  const homeSection = document.getElementById("page-home");
+
+  if (!backHomeBtn || !homeSection || !sections.length) return;
+
+  function updateBackButton() {
+    // لو الرئيسية هي الفعّالة → خفي الزر
+    if (homeSection.classList.contains("active")) {
+      backHomeBtn.style.display = "none";
+    } else {
+      backHomeBtn.style.display = "block";
+    }
+  }
+
+  // لما تكبس على "العودة للرئيسية"
+  backHomeBtn.addEventListener("click", function () {
+    sections.forEach((sec) => sec.classList.remove("active"));
+    homeSection.classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    updateBackButton();
+  });
+
+  // أول تحميل
+  updateBackButton();
+
+  // نراقب تغيّر الكلاسات (active) على الأقسام
+  const observer = new MutationObserver(updateBackButton);
+  sections.forEach((sec) => {
+    observer.observe(sec, { attributes: true, attributeFilter: ["class"] });
+  });
+});
