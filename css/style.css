@@ -69,7 +69,7 @@ body {
 .lang-btn {
   border: 1px solid rgba(148, 163, 184, 0.6);
   background: transparent;
-  color: var(--text-main);
+  color: var(--accent);
   padding: 0.25rem 0.8rem;
   border-radius: 999px;
   font-size: 0.78rem;
@@ -85,7 +85,7 @@ body {
   left: 0;
   z-index: 25;
   background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: none; /* شلنا الخط الأبيض تحت النافبار */
 }
 
 .nav-inner {
@@ -118,16 +118,34 @@ body {
   box-shadow: 0 0 10px #fed7aa, 0 0 22px rgba(248, 250, 252, 0.8);
 }
 
+/* سطر الاسم + اللوجو الصغير */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-line {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.brand-badge {
+  height: 20px;
+  width: auto;
+}
+
 .brand-text span {
   font-weight: 600;
   font-size: 0.98rem;
-  color: var(--text-main);
+  color: var(--accent); /* ذهبي */
 }
 
 .brand-text small {
   display: block;
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: var(--accent); /* ذهبي */
 }
 
 .nav-links {
@@ -139,7 +157,7 @@ body {
 .nav-link {
   cursor: pointer;
   font-size: 0.9rem;
-  color: var(--text-main);
+  color: var(--accent); /* ذهبي */
   position: relative;
   padding: 0.3rem 0;
 }
@@ -164,7 +182,7 @@ body {
   display: none;
   border: none;
   background: transparent;
-  color: var(--text-main);
+  color: var(--accent); /* الثلاث شحطات ذهبية */
   font-size: 1.25rem;
 }
 
@@ -252,11 +270,11 @@ body {
 .hero-text h1 {
   font-size: 2.25rem;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: #facc15; /* عنوان ذهبي */
 }
 
 .hero-text p {
-  color: #e5e7eb;
+  color: #fef3c7; /* نص فاتح يميل للذهبي */
   max-width: 520px;
   margin-bottom: 1.5rem;
   font-size: 0.96rem;
@@ -286,7 +304,7 @@ body {
 
 .btn.ghost {
   background: transparent;
-  color: #ffffff;
+  color: #fde68a;
   border-color: rgba(248, 250, 252, 0.6);
 }
 
@@ -733,6 +751,30 @@ body {
   border: 0;
 }
 
+/* ====== فروعنا ====== */
+
+.branches-section {
+  background: #111827;
+  color: #f9fafb;
+}
+
+.branches-inner {
+  text-align: center;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.branches-inner h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: #facc15;
+}
+
+.branches-inner p {
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
 /* ====== FOOTER ====== */
 
 .footer {
@@ -874,13 +916,14 @@ body {
     right: 0;
     left: 0;
     flex-direction: column;
-    background: #ffffff;
+    background: rgba(0, 0, 0, 0.88); /* ما عاد أبيض */
+    backdrop-filter: blur(8px);
     transform: translateY(-120%);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.2s ease, opacity 0.2s ease;
     padding-bottom: 0.6rem;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #111827;
   }
 
   .nav-links.open {
@@ -891,6 +934,7 @@ body {
 
   .nav-link {
     padding-inline: 1.5rem;
+    color: #facc15; /* الكلام الذهبي بقائمة الموبايل */
   }
 
   .hero-text h1 {
