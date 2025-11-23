@@ -1093,3 +1093,8 @@ body {
 .back-home-btn:hover {
   background: #c18c00;
 }
+/* تعطيل شاشة التحميل والانترو نهائياً */
+#preloader,
+#intro-overlay {
+  display: none !important;
+}
