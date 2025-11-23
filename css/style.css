@@ -18,16 +18,21 @@
 }
 
 :root {
-  --bg-main: #050816;
-  --bg-elevated: #0b1020;
-  --bg-soft: #0f172a;
-  --accent: #f5c859;
-  --accent-soft: rgba(245, 200, 89, 0.16);
-  --accent-strong: #f3b428;
-  --border-subtle: rgba(148, 163, 184, 0.28);
-  --text-main: #f9fafb;
-  --text-muted: #9ca3af;
+  --bg-main: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-soft: #f7f7f7;
+
+  /* ممكن تخليهم دهبي زي ما بدك */
+  --accent: #d4a017;
+  --accent-soft: rgba(212, 160, 23, 0.15);
+  --accent-strong: #c18c00;
+
+  --border-subtle: rgba(0,0,0,0.1);
+
+  --text-main: #111111;
+  --text-muted: #555555;
 }
+
 
 html,
 body {
@@ -37,8 +42,8 @@ body {
 body {
   font-family: "Sodfa", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Poppins", sans-serif;
-  background: radial-gradient(circle at top, #101224 0, #050816 55%, #020617 100%);
-  color: var(--text-main);
+  background: #ffffff !important;
+  color: #111111 !important;
   line-height: 1.7;
 }
 
@@ -102,13 +107,13 @@ body {
 /* ====== NAVBAR ====== */
 
 .navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
   position: absolute;         /* فوق الهيرو بدون ما ياخد مساحة */
   top: 0;
   right: 0;
   left: 0;
   z-index: 25;
-
-  background: transparent !important;   /* شيل الشريط الكحلي */
   border-bottom: none !important;
   backdrop-filter: none !important;
   box-shadow: none !important;
@@ -704,26 +709,11 @@ body {
 
 /* ====== INTRO OVERLAY ====== */
 
-#intro-overlay {
-  position: fixed;
-  inset: 0;
-  background: #020617;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-}
 
-#intro-overlay.hidden {
-  display: none;
-}
 
-.intro-inner {
-  position: relative;
-  text-align: center;
-  color: var(--text-main);
-  padding: 1.6rem;
-}
+
+
+
 
 .intro-inner h1 {
   font-size: 1.8rem;
@@ -765,25 +755,7 @@ body {
   pointer-events: none;
 }
 
-/* مدة أطول ~3.3 ثانية */
-#intro-overlay.playing .intro-light {
-  animation: introExpand 3.3s forwards ease-out;
-}
 
-@keyframes introExpand {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 1;
-  }
-  60% {
-    transform: translate(-50%, -50%) scale(8);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(12);
-    opacity: 0;
-  }
-}
 
 /* ====== LIGHT WIZARD ====== */
 
