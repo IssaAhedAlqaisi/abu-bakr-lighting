@@ -22,10 +22,9 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<button id="back-home-btn" class="back-home-btn">العودة للرئيسية</button>
 
-
-
+  <!-- زر العودة للرئيسية (يظهر فقط خارج الرئيسية) -->
+  <button id="back-home-btn" class="back-home-btn">العودة للرئيسية</button>
 
   <!-- 🔝 Topbar (مخفي من الـ CSS) -->
   <header class="topbar">
@@ -78,167 +77,168 @@
   <main>
 
     <!-- 🏠 الرئيسية -->
-<section id="page-home" class="page-section active">
-  <!-- HERO -->
-  <div class="hero">
-    <!-- خلفية الهيرو -->
-    <div class="hero-bg" style="background-image: url('https://i.imgur.com/iD0wrd7.jpeg');"></div>
+    <section id="page-home" class="page-section active">
 
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>إضاءة فاخرة تكمّل تفاصيل بيتك</h1>
-        <p>
-          يوسف أبو بكر للإنارة — ثريات، إنارة جدارية، إنارة داخلية وخارجية، لمبات،
-          مراوح وشفاطات، وكل ما تحتاجه لبيت مضيء وأنيق.
-        </p>
-        <div class="hero-actions">
-          <button class="btn primary" data-go="products">
-            تصفح المنتجات
-          </button>
-          <button class="btn primary" data-go="gallery">
-            شاهد المعرض
-          </button>
-          <button class="btn ghost" data-go="contact">
-            تواصل معنا
-          </button>
-        </div>
-      </div>
+      <!-- HERO -->
+      <div class="hero">
+        <!-- خلفية الهيرو -->
+        <div class="hero-bg" style="background-image: url('https://i.imgur.com/iD0wrd7.jpeg');"></div>
 
-      <!-- ثريات على اليمين -->
-      <div class="hero-lamps">
-        <div class="lamp-cluster lamp-1">
-          <div class="lamp-wire"></div>
-          <div class="lamp-head"></div>
-          <div class="lamp-bulb flicker"></div>
-          <div class="lamp-glow soft"></div>
-        </div>
-        <div class="lamp-cluster lamp-2">
-          <div class="lamp-wire"></div>
-          <div class="lamp-head wide"></div>
-          <div class="lamp-bulb steady"></div>
-          <div class="lamp-glow strong"></div>
-        </div>
-        <div class="lamp-cluster lamp-3">
-          <div class="lamp-wire"></div>
-          <div class="lamp-head slim"></div>
-          <div class="lamp-bulb pulse"></div>
-          <div class="lamp-glow pulse-glow"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- الأقسام الرئيسية (dropdown) -->
-  <div class="home-categories section">
-    <div class="container">
-      <div class="section-header">
-        <h2>الأقسام الرئيسية</h2>
-        <p>اختر القسم ثم اختر النوع، لنأخذك مباشرة إلى الصور.</p>
-      </div>
-
-      <div class="categories-grid">
-        <!-- 1. الثريات -->
-        <div class="category-card" data-cat="thu">
-          <button class="category-header">
-            <span>الثريات</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="category-body">
-            <button class="subcat-link" data-gallery="thu-modern">ثريات مودرن</button>
-            <button class="subcat-link" data-gallery="thu-crystal">ثريات كريستال</button>
-            <button class="subcat-link" data-gallery="thu-stairs">ثريات مطالع الدرج</button>
-            <button class="subcat-link" data-gallery="thu-pendants">معلّقات</button>
-            <button class="subcat-link" data-gallery="thu-floor-table">فلور لامب وتيبل لامب</button>
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1>إضاءة فاخرة تكمّل تفاصيل بيتك</h1>
+            <p>
+              يوسف أبو بكر للإنارة — ثريات، إنارة جدارية، إنارة داخلية وخارجية، لمبات،
+              مراوح وشفاطات، وكل ما تحتاجه لبيت مضيء وأنيق.
+            </p>
+            <div class="hero-actions">
+              <button class="btn primary" data-go="products">
+                تصفح المنتجات
+              </button>
+              <button class="btn primary" data-go="gallery">
+                شاهد المعرض
+              </button>
+              <button class="btn ghost" data-go="contact">
+                تواصل معنا
+              </button>
+            </div>
           </div>
-        </div>
 
-        <!-- 2. الإنارة الجدارية -->
-        <div class="category-card" data-cat="wall">
-          <button class="category-header">
-            <span>إنارة جدارية</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="category-body">
-            <button class="subcat-link" data-gallery="wall-outdoor">إنارة جدارية خارجية</button>
-            <button class="subcat-link" data-gallery="wall-solar">إنارة جدارية بالطاقة الشمسية</button>
-          </div>
-        </div>
-
-        <!-- 3. الإنارة الداخلية -->
-        <div class="category-card" data-cat="indoor">
-          <button class="category-header">
-            <span>إنارة داخلية</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="category-body">
-            <button class="subcat-link" data-gallery="in-strip">ستريب لِد</button>
-            <button class="subcat-link" data-gallery="in-magnetic">إنارة مجناتيك</button>
-            <button class="subcat-link" data-gallery="in-smart">إنارة مجناتيك سمارت</button>
-            <button class="subcat-link" data-gallery="in-frame">فريم للسبوت</button>
-          </div>
-        </div>
-
-        <!-- 4. الإنارة الخارجية -->
-        <div class="category-card" data-cat="outdoor">
-          <button class="category-header">
-            <span>إنارة خارجية</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="category-body">
-            <button class="subcat-link" data-gallery="out-lanterns">فوانيس</button>
-            <button class="subcat-link" data-gallery="out-garden">إنارة أرضية وحدائق</button>
-            <button class="subcat-link" data-gallery="out-flood">كشافات لِد</button>
-            <button class="subcat-link" data-gallery="out-street">إنارة شوارع</button>
-          </div>
-        </div>
-
-        <!-- 5. اللمبات -->
-        <div class="category-card" data-cat="bulbs">
-          <button class="category-header">
-            <span>اللمبات والسبوتات</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="category-body">
-            <button class="subcat-link" data-gallery="bulb-led">لمبات لِد</button>
-            <button class="subcat-link" data-gallery="bulb-neon">نيون</button>
-            <button class="subcat-link" data-gallery="bulb-spot">سبوت لِد</button>
-            <button class="subcat-link" data-gallery="bulb-louver">لوفر لِد 60×60</button>
-          </div>
-        </div>
-
-        <!-- 6. مراوح وشفاطات -->
-        <div class="category-card" data-cat="fans">
-          <button class="category-header">
-            <span>مراوح وشفاطات</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="category-body">
-            <button class="subcat-link" data-gallery="fans">مراوح وشفاطات</button>
+          <!-- ثريات على اليمين -->
+          <div class="hero-lamps">
+            <div class="lamp-cluster lamp-1">
+              <div class="lamp-wire"></div>
+              <div class="lamp-head"></div>
+              <div class="lamp-bulb flicker"></div>
+              <div class="lamp-glow soft"></div>
+            </div>
+            <div class="lamp-cluster lamp-2">
+              <div class="lamp-wire"></div>
+              <div class="lamp-head wide"></div>
+              <div class="lamp-bulb steady"></div>
+              <div class="lamp-glow strong"></div>
+            </div>
+            <div class="lamp-cluster lamp-3">
+              <div class="lamp-wire"></div>
+              <div class="lamp-head slim"></div>
+              <div class="lamp-bulb pulse"></div>
+              <div class="lamp-glow pulse-glow"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- معرض القسم الفرعي -->
-  <div id="subcat-gallery" class="subcat-gallery">
-    <div class="container section">
-      <button id="back-to-cats" class="btn ghost back-btn">
-        ⟵ الرجوع إلى الأقسام الرئيسية
-      </button>
+      <!-- الأقسام الرئيسية (dropdown) -->
+      <div class="home-categories section">
+        <div class="container">
+          <div class="section-header">
+            <h2>الأقسام الرئيسية</h2>
+            <p>اختر القسم ثم اختر النوع، لنأخذك مباشرة إلى الصور.</p>
+          </div>
 
-      <div class="section-header">
-        <h2 id="subcat-title">عنوان القسم الفرعي</h2>
-        <p id="subcat-desc">وصف بسيط عن هذا القسم.</p>
+          <div class="categories-grid">
+            <!-- 1. الثريات -->
+            <div class="category-card" data-cat="thu">
+              <button class="category-header">
+                <span>الثريات</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="category-body">
+                <button class="subcat-link" data-gallery="thu-modern">ثريات مودرن</button>
+                <button class="subcat-link" data-gallery="thu-crystal">ثريات كريستال</button>
+                <button class="subcat-link" data-gallery="thu-stairs">ثريات مطالع الدرج</button>
+                <button class="subcat-link" data-gallery="thu-pendants">معلّقات</button>
+                <button class="subcat-link" data-gallery="thu-floor-table">فلور لامب وتيبل لامب</button>
+              </div>
+            </div>
+
+            <!-- 2. الإنارة الجدارية -->
+            <div class="category-card" data-cat="wall">
+              <button class="category-header">
+                <span>إنارة جدارية</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="category-body">
+                <button class="subcat-link" data-gallery="wall-outdoor">إنارة جدارية خارجية</button>
+                <button class="subcat-link" data-gallery="wall-solar">إنارة جدارية بالطاقة الشمسية</button>
+              </div>
+            </div>
+
+            <!-- 3. الإنارة الداخلية -->
+            <div class="category-card" data-cat="indoor">
+              <button class="category-header">
+                <span>إنارة داخلية</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="category-body">
+                <button class="subcat-link" data-gallery="in-strip">ستريب لِد</button>
+                <button class="subcat-link" data-gallery="in-magnetic">إنارة مجناتيك</button>
+                <button class="subcat-link" data-gallery="in-smart">إنارة مجناتيك سمارت</button>
+                <button class="subcat-link" data-gallery="in-frame">فريم للسبوت</button>
+              </div>
+            </div>
+
+            <!-- 4. الإنارة الخارجية -->
+            <div class="category-card" data-cat="outdoor">
+              <button class="category-header">
+                <span>إنارة خارجية</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="category-body">
+                <button class="subcat-link" data-gallery="out-lanterns">فوانيس</button>
+                <button class="subcat-link" data-gallery="out-garden">إنارة أرضية وحدائق</button>
+                <button class="subcat-link" data-gallery="out-flood">كشافات لِد</button>
+                <button class="subcat-link" data-gallery="out-street">إنارة شوارع</button>
+              </div>
+            </div>
+
+            <!-- 5. اللمبات -->
+            <div class="category-card" data-cat="bulbs">
+              <button class="category-header">
+                <span>اللمبات والسبوتات</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="category-body">
+                <button class="subcat-link" data-gallery="bulb-led">لمبات لِد</button>
+                <button class="subcat-link" data-gallery="bulb-neon">نيون</button>
+                <button class="subcat-link" data-gallery="bulb-spot">سبوت لِد</button>
+                <button class="subcat-link" data-gallery="bulb-louver">لوفر لِد 60×60</button>
+              </div>
+            </div>
+
+            <!-- 6. مراوح وشفاطات -->
+            <div class="category-card" data-cat="fans">
+              <button class="category-header">
+                <span>مراوح وشفاطات</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="category-body">
+                <button class="subcat-link" data-gallery="fans">مراوح وشفاطات</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div id="subcat-images" class="gallery-grid">
-        <!-- هنا بتنعبي الصور من الجافاسكربت -->
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- معرض القسم الفرعي -->
+      <div id="subcat-gallery" class="subcat-gallery">
+        <div class="container section">
+          <button id="back-to-cats" class="btn ghost back-btn">
+            ⟵ الرجوع إلى الأقسام الرئيسية
+          </button>
 
+          <div class="section-header">
+            <h2 id="subcat-title">عنوان القسم الفرعي</h2>
+            <p id="subcat-desc">وصف بسيط عن هذا القسم.</p>
+          </div>
+
+          <div id="subcat-images" class="gallery-grid">
+            <!-- هنا بتنعبي الصور من الجافاسكربت -->
+          </div>
+        </div>
+      </div>
+
+    </section>
 
     <!-- ℹ️ من نحن -->
     <section id="page-about" class="page-section">
@@ -261,7 +261,7 @@
           </div>
           <div class="about-image">
             <img
-              src="https://i.imgur.com/qmsSYer.jpeg"
+              src="https://i.imgur.com/amXvUUL.jpeg"
               alt="داخل معرض أبو بكر للإنارة"
             />
           </div>
@@ -337,59 +337,19 @@
           <p data-i18n="gallery_subtitle">لقطات من داخل المعرض وأبرز القطع</p>
         </div>
         <div class="gallery-grid">
+          <!-- نفس الصور اللي عندك قبل (اختصرتها شوي لو حاب ترجعهم كلهم رجّع) -->
           <img src="https://i.imgur.com/ImXt2UA.jpeg" alt="إنارة 1" class="gallery-item" />
           <img src="https://i.imgur.com/qmsSYer.jpeg" alt="إنارة 2" class="gallery-item" />
           <img src="https://i.imgur.com/tUaJh8c.jpeg" alt="إنارة 3" class="gallery-item" />
           <img src="https://i.imgur.com/TqZ9llQ.jpeg" alt="إنارة 4" class="gallery-item" />
           <img src="https://i.imgur.com/h74UouB.jpeg" alt="إنارة 5" class="gallery-item" />
-          <img src="https://i.imgur.com/qmez3u4.jpeg" alt="إنارة 6" class="gallery-item" />
-          <img src="https://i.imgur.com/AgwTI2n.jpeg" alt="إنارة 7" class="gallery-item" />
-          <img src="https://i.imgur.com/rXYyfud.jpeg" alt="إنارة 8" class="gallery-item" />
-          <img src="https://i.imgur.com/nVGryNq.jpeg" alt="إنارة 9" class="gallery-item" />
-          <img src="https://i.imgur.com/Xk3XIK0.jpeg" alt="إنارة 10" class="gallery-item" />
-          <img src="https://i.imgur.com/1nXHeYK.jpeg" alt="إنارة 11" class="gallery-item" />
-          <img src="https://i.imgur.com/UtyBbxR.jpeg" alt="إنارة 12" class="gallery-item" />
-          <img src="https://i.imgur.com/ZaPj0mv.jpeg" alt="إنارة 13" class="gallery-item" />
-          <img src="https://i.imgur.com/UvAJH6P.jpeg" alt="إنارة 14" class="gallery-item" />
-          <img src="https://i.imgur.com/rjmtSN0.jpeg" alt="إنارة 15" class="gallery-item" />
-          <img src="https://i.imgur.com/jYbwhhv.jpeg" alt="إنارة 16" class="gallery-item" />
-          <img src="https://i.imgur.com/K4i6ttw.jpeg" alt="إنارة 17" class="gallery-item" />
-          <img src="https://i.imgur.com/LBPTqbd.jpeg" alt="إنارة 18" class="gallery-item" />
-          <img src="https://i.imgur.com/1sT07MO.jpeg" alt="إنارة 19" class="gallery-item" />
-          <img src="https://i.imgur.com/atEl2e4.jpeg" alt="إنارة 20" class="gallery-item" />
-          <img src="https://i.imgur.com/MRL53dJ.jpeg" alt="إنارة 21" class="gallery-item" />
-          <img src="https://i.imgur.com/nF1piz0.jpeg" alt="إنارة 22" class="gallery-item" />
-          <img src="https://i.imgur.com/WUyi5sg.jpeg" alt="إنارة 23" class="gallery-item" />
-          <img src="https://i.imgur.com/x3wM0Sc.jpeg" alt="إنارة 24" class="gallery-item" />
-          <img src="https://i.imgur.com/s9xedTS.jpeg" alt="إنارة 25" class="gallery-item" />
-          <img src="https://i.imgur.com/KduneRk.jpeg" alt="إنارة 26" class="gallery-item" />
-          <img src="https://i.imgur.com/41fhdjq.jpeg" alt="إنارة 27" class="gallery-item" />
-          <img src="https://i.imgur.com/JjeUqSp.jpeg" alt="إنارة 28" class="gallery-item" />
-          <img src="https://i.imgur.com/cjsWJmn.jpeg" alt="إنارة 29" class="gallery-item" />
-          <img src="https://i.imgur.com/fdgtFDN.jpeg" alt="إنارة 30" class="gallery-item" />
-          <img src="https://i.imgur.com/6ayUpdX.jpeg" alt="إنارة 31" class="gallery-item" />
-          <img src="https://i.imgur.com/LpMsCBd.jpeg" alt="إنارة 32" class="gallery-item" />
-          <img src="https://i.imgur.com/KkudgPu.jpeg" alt="إنارة 33" class="gallery-item" />
-          <img src="https://i.imgur.com/VdGsM0H.jpeg" alt="إنارة 34" class="gallery-item" />
-          <img src="https://i.imgur.com/hb9FABk.jpeg" alt="إنارة 35" class="gallery-item" />
-          <img src="https://i.imgur.com/b8RmBwi.jpeg" alt="إنارة 36" class="gallery-item" />
-          <img src="https://i.imgur.com/RhbZSpb.jpeg" alt="إنارة 37" class="gallery-item" />
-          <img src="https://i.imgur.com/HsjDRWq.jpeg" alt="إنارة 38" class="gallery-item" />
-          <img src="https://i.imgur.com/ShsRYzS.jpeg" alt="إنارة 39" class="gallery-item" />
-          <img src="https://i.imgur.com/euTlcGo.jpeg" alt="إنارة 40" class="gallery-item" />
-          <img src="https://i.imgur.com/Fi0vN6D.jpeg" alt="إنارة 41" class="gallery-item" />
-          <img src="https://i.imgur.com/WzjtEN6.jpeg" alt="إنارة 42" class="gallery-item" />
-          <img src="https://i.imgur.com/F0sju2M.jpeg" alt="إنارة 43" class="gallery-item" />
-          <img src="https://i.imgur.com/ByCzTVw.jpeg" alt="إنارة 44" class="gallery-item" />
-          <img src="https://i.imgur.com/2kYziiz.jpeg" alt="إنارة 45" class="gallery-item" />
-          <img src="https://i.imgur.com/OwzYC6D.jpeg" alt="إنارة 46" class="gallery-item" />
-          <img src="https://i.imgur.com/xzQESMU.jpeg" alt="إنارة 47" class="gallery-item" />
-          <img src="https://i.imgur.com/FZkTPG2.jpeg" alt="إنارة 48" class="gallery-item" />
-          <img src="https://i.imgur.com/Qbh5Gdm.jpeg" alt="إنارة 49" class="gallery-item" />
-          <img src="https://i.imgur.com/VdGsM0H.jpeg"  alt="إنارة 50" class="gallery-item" />
-          <img src="https://i.imgur.com/QY2u2jY.jpeg" alt="إنارة 51" class="gallery-item" />
-          <img src="https://i.imgur.com/GOlxqf9.jpeg" alt="إنارة 52" class="gallery-item" />
-          <img src="https://i.imgur.com/BFwq67r.jpeg" alt="إنارة 53" class="gallery-item" />
+          <img src="https://i.imgur.com/AgwTI2n.jpeg" alt="إنارة 6" class="gallery-item" />
+          <img src="https://i.imgur.com/rXYyfud.jpeg" alt="إنارة 7" class="gallery-item" />
+          <img src="https://i.imgur.com/nVGryNq.jpeg" alt="إنارة 8" class="gallery-item" />
+          <img src="https://i.imgur.com/Xk3XIK0.jpeg" alt="إنارة 9" class="gallery-item" />
+          <img src="https://i.imgur.com/1nXHeYK.jpeg" alt="إنارة 10" class="gallery-item" />
+          <img src="https://i.imgur.com/UvAJH6P.jpeg" alt="إنارة 11" class="gallery-item" />
+          <img src="https://i.imgur.com/ZaPj0mv.jpeg" alt="إنارة 12" class="gallery-item" />
         </div>
       </div>
 
@@ -470,12 +430,12 @@
             <p>
               <i class="fa-solid fa-phone"></i>
               <span data-i18n="contact_phone_label">الهاتف:</span>
-              <a href="tel:0790000000">0790000000</a>
+              <a href="tel:+962785844782">+962785844782</a>
             </p>
             <p>
               <i class="fa-brands fa-whatsapp"></i>
               WhatsApp:
-              <a href="https://wa.me/962790000000" target="_blank">+962 79 000 0000</a>
+              <a href="https://wa.me/962785844782" target="_blank">+962785844782</a>
             </p>
             <p>
               <i class="fa-solid fa-clock"></i>
@@ -494,7 +454,7 @@
             </p>
             <a
               class="btn whatsapp"
-              href="https://wa.me/962790000000"
+              href="https://wa.me/962785844782"
               target="_blank"
               data-i18n="contact_whatsapp_btn"
             >
@@ -516,13 +476,24 @@
 
   </main>
 
-  <!-- ⚫ Footer (بدون "تصميم وتنفيذ") -->
+  <!-- ⚫ Footer -->
   <footer class="footer">
     <div class="container flex-between footer-inner">
       <p id="footer-copy"></p>
       <p class="footer-dev"></p>
     </div>
   </footer>
+
+  <!-- أزرار تواصل طايرة (اتصال + واتساب) -->
+  <div class="floating-contact">
+    <a href="tel:+962785844782" class="float-btn float-call">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+
+    <a href="https://wa.me/962785844782" target="_blank" class="float-btn float-whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
 
   <!-- JS -->
   <script src="js/main.js"></script>
