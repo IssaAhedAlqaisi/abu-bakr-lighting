@@ -26,7 +26,7 @@
   <!-- زر العودة للرئيسية (يظهر فقط خارج الرئيسية) -->
   <button id="back-home-btn" class="back-home-btn">العودة للرئيسية</button>
 
-  <!-- 🔝 Topbar (مخفي من الـ CSS) -->
+  <!-- 🔝 Topbar (مخفي من الـ CSS) 
   <header class="topbar">
     <div class="container flex-between">
       <div class="topbar-contact">
@@ -45,40 +45,43 @@
       <button id="lang-toggle" class="lang-btn">EN</button>
     </div>
   </header>
-
+  -->
   <!-- 🔻 Navbar -->
-  <nav class="navbar">
-    <div class="container flex-between nav-inner">
-      <div class="brand">
-        <div class="brand-logo">
-          <img
-            src="https://i.imgur.com/bFHCZ3o.png"
-            alt="شعار أبو بكر للإنارة"
-            class="brand-logo-img"
-          />
-        </div>
-        <div class="brand-text">
-          <span data-i18n="brand_name_main">أبو بكر للإنارة</span>
-          <small data-i18n="brand_name_sub">إضاءة تُكمل فخامة بيتك</small>
-        </div>
+<nav class="navbar">
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="brand-text">
+        <span>أبو بكر للإنارة</span>
+        <small>إضاءة تُكمل فخامة بيتك</small>
       </div>
+      <img
+        src="https://i.imgur.com/bFHCZ3o.png"
+        alt="شعار أبو بكر للإنارة"
+        class="brand-logo-img"
+      />
+    </div>
 
-      </div>
+    <!-- روابط الناف -->
+    <ul class="nav-links" id="nav-links">
+      <li class="nav-link active" data-section="home">الرئيسية</li>
+      <li class="nav-link" data-section="about">من نحن</li>
+      <li class="nav-link" data-section="products">المنتجات</li>
+      <li class="nav-link" data-section="gallery">المعرض</li>
+      <li class="nav-link" data-section="projects">أعمالنا</li>
+      <li class="nav-link" data-section="contact">تواصل</li>
+    </ul>
 
+    <!-- ثلاث شحطات + زر اللغة تحتها -->
+    <div class="nav-right">
       <button class="nav-toggle" id="nav-toggle">
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <ul class="nav-links" id="nav-links">
-        <li class="nav-link active" data-section="home" data-i18n="nav_home">الرئيسية</li>
-        <li class="nav-link" data-section="about" data-i18n="nav_about">من نحن</li>
-        <li class="nav-link" data-section="products" data-i18n="nav_products">المنتجات</li>
-        <li class="nav-link" data-section="gallery" data-i18n="nav_gallery">المعرض</li>
-        <li class="nav-link" data-section="projects" data-i18n="nav_projects">أعمالنا</li>
-        <li class="nav-link" data-section="contact" data-i18n="nav_contact">تواصل</li>
-      </ul>
+      <button id="lang-toggle" class="lang-btn">EN</button>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <main>
 
