@@ -10,6 +10,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinksContainer = document.getElementById("nav-links");
   const footerCopy = document.getElementById("footer-copy");
 
+  const backHomeBtn = document.getElementById("back-home-btn");
+  const sections = document.querySelectorAll(".page-section");
+  const homeSection = document.getElementById("page-home");
+
+// كل ما يتغير القسم
+function updateBackButton() {
+  if (!homeSection.classList.contains("active")) {
+    backHomeBtn.style.display = "block";
+  } else {
+    backHomeBtn.style.display = "none";
+  }
+}
+
+// اربط الزر للرجوع للرئيسية
+backHomeBtn.addEventListener("click", () => {
+  sections.forEach(s => s.classList.remove("active"));
+  homeSection.classList.add("active");
+  updateBackButton();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// نادِ الفنكشن أول مرة
+updateBackButton();
+
   // 🔁 Preloader
   if (preloader) {
     setTimeout(() => {
