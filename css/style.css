@@ -91,6 +91,8 @@ body {
 
 .nav-inner {
   height: 62px;
+  display: flex;
+  align-items: center;
 }
 
 .brand {
@@ -156,10 +158,11 @@ body {
 .nav-link {
   cursor: pointer;
   font-size: 0.9rem;
-  color: var(--accent-strong); /* ذهبي */
+  color: #d4a017; /* ذهبي */
   position: relative;
   padding: 0.3rem 0;
 }
+
 
 .nav-link::after {
   content: "";
@@ -180,10 +183,15 @@ body {
 .nav-toggle {
   display: none;
   border: none;
-  background: transparent;
-  color: var(--accent-strong); /* الثلاث شحطات ذهبية */
-  font-size: 1.25rem;
+  background: #d4a017;         /* خلفية ذهبية */
+  color: #111;                  /* لون الثلاث شحطات */
+  font-size: 1.3rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(212, 160, 23, 0.4);
+  margin-left: auto;            /* يخليه يروح لأقصى اليسار بالموبايل */
 }
+
 
 /* ====== SECTIONS ====== */
 
@@ -201,7 +209,7 @@ body {
 
 .section-header {
   text-align: center;
-  margin-bottom: 2.4rem;
+  margin: 3.5rem 0 2.4rem;
 }
 
 .section-header h2 {
@@ -793,7 +801,8 @@ body {
 .back-home-btn {
   position: fixed;
   top: 80px;
-  right: 20px;
+  left: 50%;              /* وسط الشاشة أفقياً */
+  transform: translateX(-50%);
   z-index: 999;
   background: #d4a017;
   color: #111;
@@ -804,12 +813,13 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(212, 160, 23, 0.35);
   transition: 0.2s ease;
-  display: none;
+  display: none; /* يبين بس بالأقسام غير الرئيسية عن طريق الجافاسكربت */
 }
 
 .back-home-btn:hover {
   background: #c18c00;
 }
+
 
 /* ====== FLOATING CONTACT BUTTONS ====== */
 
@@ -915,7 +925,7 @@ body {
   right: 0;
   left: 0;
   flex-direction: column;
-  background: rgba(0, 0, 0, 0.9);      /* شفاف غامق بدل أبيض */
+  background: rgba(0, 0, 0, 0.95); /* شلنا الأبيض وحطينا أسود شفاف */
   transform: translateY(-120%);
   opacity: 0;
   pointer-events: none;
@@ -924,21 +934,17 @@ body {
   border-bottom: none;
 }
 
-.nav-links .nav-link {
-  color: var(--accent);              /* الكلام جوّا القائمة ذهبي */
+.nav-links.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
+.nav-link {
+  padding-inline: 1.5rem;
+  color: #d4a017; /* يخليها ذهبية في الموبايل كمان */
+}
 
-  .nav-links.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-link {
-    padding-inline: 1.5rem;
-    color: #facc15; /* الكلام الذهبي بقائمة الموبايل */
-  }
 
   .hero-text h1 {
     font-size: 1.9rem;
