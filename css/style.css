@@ -83,6 +83,11 @@ body {
   padding: 4px 1.5rem 0;
 }
 
+/* خبّينا معلومات الاتصال لو مش حاببها */
+.topbar-contact {
+  display: none;
+}
+
 .lang-btn {
   border-radius: 999px;
   border: 1px solid #d4a017;
