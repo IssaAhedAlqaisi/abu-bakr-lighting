@@ -480,3 +480,250 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  /* ========== فتح/إغلاق الكروت (الأقسام الرئيسية) ========== */
+  const categoryCards = document.querySelectorAll(".category-card");
+
+  categoryCards.forEach((card) => {
+    const header = card.querySelector(".category-header");
+    if (!header) return;
+
+    header.addEventListener("click", () => {
+      // لو حابب تخلي كرت واحد بس مفتوح، فك الكومنت عن هدول:
+      // categoryCards.forEach(c => {
+      //   if (c !== card) c.classList.remove("open");
+      // });
+
+      card.classList.toggle("open");
+    });
+  });
+
+  /* ========== بيانات الصور لكل قسم فرعي ========== */
+  const galleryData = {
+    // الثريات
+    "thu-modern": {
+      title: "ثريات مودرن",
+      desc: "مجموعة من الثريات المودرن بتصاميم عصرية تناسب الصالونات وغرف المعيشة.",
+      images: [
+        "https://i.imgur.com/jFEsyhC.jpeg",
+        "https://i.imgur.com/amXvUUL.jpeg"
+      ],
+    },
+    "thu-crystal": {
+      title: "ثريات كريستال",
+      desc: "ثريات كريستال فاخرة تضيف لمسة فخامة لأي مساحة.",
+      images: [
+        "https://i.imgur.com/iD0wrd7.jpeg",
+        "https://i.imgur.com/HvHtGm.jpeg"
+      ],
+    },
+    "thu-stairs": {
+      title: "ثريات مطالع الدرج",
+      desc: "إنارة خاصة لمطالع الدرج بارتفاعات مختلفة وإضاءة مميزة.",
+      images: [
+        "https://i.imgur.com/GLnZ7LF.jpeg",
+        "https://i.imgur.com/RLGHNSb.jpeg",
+        "https://i.imgur.com/xf56xsh.jpeg"
+      ],
+    },
+    "thu-pendants": {
+      title: "معلّقات",
+      desc: "إنارة معلّقة تناسب طاولات السفرة والكونترات والممرات.",
+      images: [
+        "https://i.imgur.com/hb9FABk.jpeg",
+        "https://i.imgur.com/VdGsM0H.jpeg",
+        "https://i.imgur.com/KkudgPu.jpeg"
+      ],
+    },
+    "thu-floor-table": {
+      title: "فلور لامب وتيبل لامب",
+      desc: "إضاءات أرضية وطاولية لزوايا البيت وغرف النوم.",
+      images: [
+        "https://i.imgur.com/6ayUpdX.jpeg",
+        "https://i.imgur.com/cjsWJmn.jpeg"
+      ],
+    },
+
+    // إنارة جدارية
+    "wall-outdoor": {
+      title: "إنارة جدارية خارجية",
+      desc: "إنارة جدارية خارجية للواجهات والمداخل.",
+      images: [
+        "https://i.imgur.com/ShsRYzS.jpeg",
+        "https://i.imgur.com/euTlcGo.jpeg"
+      ],
+    },
+    "wall-solar": {
+      title: "إنارة جدارية بالطاقة الشمسية",
+      desc: "إنارة جدارية تعمل بالطاقة الشمسية لتوفير الطاقة.",
+      images: [
+        "https://i.imgur.com/UtyBbxR.jpeg",
+        "https://i.imgur.com/ZaPj0mv.jpeg"
+      ],
+    },
+
+    // إنارة داخلية
+    "in-strip": {
+      title: "ستريب لِد",
+      desc: "شرائط لِد لإضاءة الجبس والديكور الداخلي.",
+      images: [
+        "https://i.imgur.com/h74UouB.jpeg",
+        "https://i.imgur.com/qmsSYer.jpeg"
+      ],
+    },
+    "in-magnetic": {
+      title: "إنارة مجناتيك",
+      desc: "مسارات مغناطيسية بإضاءات متعددة قابلة للتركيب والتغيير.",
+      images: [
+        "https://i.imgur.com/GOlxqf9.jpeg"
+      ],
+    },
+    "in-smart": {
+      title: "إنارة مجناتيك سمارت",
+      desc: "إنارة مغناطيسية ذكية يمكن التحكم بها عن بعد.",
+      images: [
+        "https://i.imgur.com/GOlxqf9.jpeg",
+        "https://i.imgur.com/UtyBbxR.jpeg"
+      ],
+    },
+    "in-frame": {
+      title: "فريم للسبوت",
+      desc: "إطارات سبوت بأنواع مختلفة لتوزيع الإضاءة بشكل أنيق.",
+      images: [
+        "https://i.imgur.com/Inei5Eg.jpeg",
+        "https://i.imgur.com/iNnI4mu.jpeg"
+      ],
+    },
+
+    // إنارة خارجية
+    "out-lanterns": {
+      title: "فوانيس خارجية",
+      desc: "فوانيس إنارة للحدائق والمداخل والشرفات.",
+      images: [
+        "https://i.imgur.com/LI7gtLh.jpeg",
+        "https://i.imgur.com/asbN7ky.jpeg"
+      ],
+    },
+    "out-garden": {
+      title: "إنارة أرضية وحدائق",
+      desc: "إنارة خاصة للممرات والحدائق والوحدات الأرضية.",
+      images: [
+        "https://i.imgur.com/LSfmuaV.jpeg",
+        "https://i.imgur.com/K4i6ttw.jpeg"
+      ],
+    },
+    "out-flood": {
+      title: "كشافات لِد خارجية",
+      desc: "كشافات لِد قوية لإنارة المساحات الخارجية.",
+      images: [
+        "https://i.imgur.com/UvAJH6P.jpeg",
+        "https://i.imgur.com/ZaPj0mv.jpeg",
+        "https://i.imgur.com/TqZ9llQ.jpeg"
+      ],
+    },
+    "out-street": {
+      title: "إنارة شوارع",
+      desc: "كشافات وإنارات خاصة للشوارع والمناطق المفتوحة.",
+      images: [
+        "https://i.imgur.com/ByCzTVw.jpeg",
+        "https://i.imgur.com/F0sju2M.jpeg",
+        "https://i.imgur.com/OwzYC6D.jpeg"
+      ],
+    },
+
+    // لمبات
+    "bulb-led": {
+      title: "لمبات لِد",
+      desc: "لمبات لِد باستهلاك منخفض وعمر طويل.",
+      images: [
+        "https://i.imgur.com/h74UouB.jpeg",
+        "https://i.imgur.com/tUaJh8c.jpeg"
+      ],
+    },
+    "bulb-neon": {
+      title: "لمبات نيون",
+      desc: "لمبات نيون للإنارة العامة واللوحات.",
+      images: [
+        "https://i.imgur.com/tUaJh8c.jpeg",
+        "https://i.imgur.com/h74UouB.jpeg"
+      ],
+    },
+    "bulb-spot": {
+      title: "سبوت لِد",
+      desc: "سبوتات لِد للأسقف والجبس.",
+      images: [
+        "https://i.imgur.com/Inei5Eg.jpeg",
+        "https://i.imgur.com/iNnI4mu.jpeg"
+      ],
+    },
+    "bulb-louver": {
+      title: "لوفر لِد 60×60",
+      desc: "لوحات لِد 60×60 للمكاتب والمحلات.",
+      images: [
+        "https://i.imgur.com/ImXt2UA.jpeg",
+        "https://i.imgur.com/qmsSYer.jpeg"
+      ],
+    },
+
+    // مراوح وشفاطات
+    "fans": {
+      title: "مراوح وشفاطات",
+      desc: "مجموعة من المراوح والشفاطات للاستخدام المنزلي والتجاري.",
+      images: [
+        "https://i.imgur.com/AgwTI2n.jpeg",
+        "https://i.imgur.com/rXYyfud.jpeg",
+        "https://i.imgur.com/nVGryNq.jpeg",
+        "https://i.imgur.com/Xk3XIK0.jpeg",
+        "https://i.imgur.com/1nXHeYK.jpeg"
+      ],
+    },
+  };
+
+  const subcatGallery = document.getElementById("subcat-gallery");
+  const subcatTitle = document.getElementById("subcat-title");
+  const subcatDesc = document.getElementById("subcat-desc");
+  const subcatImages = document.getElementById("subcat-images");
+  const backToCatsBtn = document.getElementById("back-to-cats");
+
+  const subcatLinks = document.querySelectorAll(".subcat-link");
+
+  subcatLinks.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.gallery;
+      const data = galleryData[key];
+      if (!data) return;
+
+      // عبي العنوان والوصف
+      subcatTitle.textContent = data.title;
+      subcatDesc.textContent = data.desc;
+
+      // عبي الصور
+      subcatImages.innerHTML = "";
+      data.images.forEach((url) => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = data.title;
+        img.classList.add("gallery-item");
+        subcatImages.appendChild(img);
+      });
+
+      // إظهار المعرض الفرعي
+      subcatGallery.classList.add("active");
+
+      // سكر أي لايت بوكس قديم لو عندك كود إله (اختياري)
+      // Scroll للمعرض
+      subcatGallery.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // زر الرجوع للأقسام الرئيسية
+  if (backToCatsBtn) {
+    backToCatsBtn.addEventListener("click", () => {
+      subcatGallery.classList.remove("active");
+      const catsSection = document.querySelector(".home-categories");
+      if (catsSection) {
+        catsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
+});
