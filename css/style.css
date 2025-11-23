@@ -800,7 +800,7 @@ body {
 
 .back-home-btn {
   position: fixed;
-  top: 80px;
+  top: 64px;
   left: 50%;              /* وسط الشاشة أفقياً */
   transform: translateX(-50%);
   z-index: 999;
