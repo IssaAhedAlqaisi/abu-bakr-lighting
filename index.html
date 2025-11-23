@@ -96,7 +96,8 @@
       <div class="hero-text">
         <h1>إضاءة فاخرة تكمّل تفاصيل بيتك</h1>
         <p>
-          يوسف أبو بكر للإنارة — تشكيلة واسعة من الثريات، الإنارة الجدارية، الإنارة الداخلية والخارجية، اللمبات، المراوح، المفاتيح الذكية وأكثر.
+          يوسف أبو بكر للإنارة — ثريات، إنارة جدارية، إنارة داخلية وخارجية، لمبات،
+          مراوح وشفاطات، وكل ما تحتاجه لبيت مضيء وأنيق.
         </p>
         <div class="hero-actions">
           <button class="btn primary" data-go="products">
@@ -135,139 +136,117 @@
     </div>
   </div>
 
-  <!-- الأقسام الرئيسية -->
+  <!-- الأقسام الرئيسية (dropdown) -->
   <div class="home-categories section">
     <div class="container">
       <div class="section-header">
         <h2>الأقسام الرئيسية</h2>
-        <p>
-          كل ما تحتاجه من حلول الإنارة والمنتجات الكهربائية في مكان واحد.
-        </p>
+        <p>اختر القسم ثم اختر النوع، لنأخذك مباشرة إلى الصور.</p>
       </div>
 
       <div class="categories-grid">
         <!-- 1. الثريات -->
-        <div class="category-card">
-          <h3>الثريات</h3>
-          <ul>
-            <li>ثريات مودرن</li>
-            <li>ثريات كلاسيك</li>
-            <li>ثريات كريستال</li>
-            <li>ثريات حائطية</li>
-            <li>ثريات معلّقة</li>
-            <li>ثريات غرف نوم وصالونات</li>
-          </ul>
+        <div class="category-card" data-cat="thu">
+          <button class="category-header">
+            <span>الثريات</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="category-body">
+            <button class="subcat-link" data-gallery="thu-modern">ثريات مودرن</button>
+            <button class="subcat-link" data-gallery="thu-crystal">ثريات كريستال</button>
+            <button class="subcat-link" data-gallery="thu-stairs">ثريات مطالع الدرج</button>
+            <button class="subcat-link" data-gallery="thu-pendants">معلّقات</button>
+            <button class="subcat-link" data-gallery="thu-floor-table">فلور لامب وتيبل لامب</button>
+          </div>
         </div>
 
         <!-- 2. الإنارة الجدارية -->
-        <div class="category-card">
-          <h3>الإنارة الجدارية</h3>
-          <ul>
-            <li>إنارة جدارية داخلية</li>
-            <li>إنارة جدارية خارجية</li>
-            <li>إنارة جدارية بالطاقة الشمسية</li>
-          </ul>
+        <div class="category-card" data-cat="wall">
+          <button class="category-header">
+            <span>إنارة جدارية</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="category-body">
+            <button class="subcat-link" data-gallery="wall-outdoor">إنارة جدارية خارجية</button>
+            <button class="subcat-link" data-gallery="wall-solar">إنارة جدارية بالطاقة الشمسية</button>
+          </div>
         </div>
 
         <!-- 3. الإنارة الداخلية -->
-        <div class="category-card">
-          <h3>الإنارة الداخلية</h3>
-          <ul>
-            <li>LED Strip (شرائط ديل)</li>
-            <li>إنارة مغناطيسية</li>
-            <li>إنارة مغناطيسية ذكية (Smart)</li>
-            <li>بروفايلات إنارة</li>
-            <li>سبوت فريم + سيلندر</li>
-          </ul>
+        <div class="category-card" data-cat="indoor">
+          <button class="category-header">
+            <span>إنارة داخلية</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="category-body">
+            <button class="subcat-link" data-gallery="in-strip">ستريب لِد</button>
+            <button class="subcat-link" data-gallery="in-magnetic">إنارة مجناتيك</button>
+            <button class="subcat-link" data-gallery="in-smart">إنارة مجناتيك سمارت</button>
+            <button class="subcat-link" data-gallery="in-frame">فريم للسبوت</button>
+          </div>
         </div>
 
         <!-- 4. الإنارة الخارجية -->
-        <div class="category-card">
-          <h3>الإنارة الخارجية</h3>
-          <ul>
-            <li>فوانيس خارجية</li>
-            <li>وحدات أرضية</li>
-            <li>كشافات LED</li>
-            <li>إنارة شوارع</li>
-            <li>إنارة المسابح</li>
-            <li>كشافات طاقة شمسية</li>
-          </ul>
+        <div class="category-card" data-cat="outdoor">
+          <button class="category-header">
+            <span>إنارة خارجية</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="category-body">
+            <button class="subcat-link" data-gallery="out-lanterns">فوانيس</button>
+            <button class="subcat-link" data-gallery="out-garden">إنارة أرضية وحدائق</button>
+            <button class="subcat-link" data-gallery="out-flood">كشافات لِد</button>
+            <button class="subcat-link" data-gallery="out-street">إنارة شوارع</button>
+          </div>
         </div>
 
         <!-- 5. اللمبات -->
-        <div class="category-card">
-          <h3>اللمبات والسبوتات</h3>
-          <ul>
-            <li>لمبات LED</li>
-            <li>لمبات نيون LED</li>
-            <li>سبوتات LED</li>
-            <li>لوحات 60×60 LED</li>
-            <li>كُلوب LED</li>
-          </ul>
+        <div class="category-card" data-cat="bulbs">
+          <button class="category-header">
+            <span>اللمبات والسبوتات</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="category-body">
+            <button class="subcat-link" data-gallery="bulb-led">لمبات لِد</button>
+            <button class="subcat-link" data-gallery="bulb-neon">نيون</button>
+            <button class="subcat-link" data-gallery="bulb-spot">سبوت لِد</button>
+            <button class="subcat-link" data-gallery="bulb-louver">لوفر لِد 60×60</button>
+          </div>
         </div>
 
-        <!-- 6. شفاطات ومراوح -->
-        <div class="category-card">
-          <h3>شفاطات ومراوح</h3>
-          <ul>
-            <li>شفاطات مطابخ وحمامات</li>
-            <li>مراوح سقفية</li>
-            <li>مراوح حائطية وأرضية</li>
-          </ul>
-        </div>
-
-        <!-- 7. مفاتيح الإنارة -->
-        <div class="category-card">
-          <h3>مفاتيح الإنارة</h3>
-          <ul>
-            <li>مفاتيح عادية</li>
-            <li>مفاتيح ذكية (Smart)</li>
-          </ul>
-        </div>
-
-        <!-- 8. مَاركاتنا -->
-        <div class="category-card">
-          <h3>مَاركاتنا</h3>
-          <ul>
-            <li>تشكيلة من أشهر ماركات الإنارة</li>
-            <li>علامات تجارية مضمونة</li>
-            <li>ضمان على أغلب المنتجات</li>
-          </ul>
-        </div>
-
-        <!-- 9. لوحات التوزيع -->
-        <div class="category-card">
-          <h3>لوحات توزيع الكهرباء</h3>
-          <ul>
-            <li>لوحات توزيع رئيسية</li>
-            <li>لوحات فرعية للشقق والمحال</li>
-            <li>قواطع وحمايات كهربائية</li>
-          </ul>
-        </div>
-
-        <!-- 10. مرايا مضيئة -->
-        <div class="category-card">
-          <h3>مرايا مضيئة</h3>
-          <ul>
-            <li>مرايا حمامات مضيئة</li>
-            <li>مرايا غرف نوم ومكياج</li>
-            <li>أشكال دائرية ومستطيلة</li>
-          </ul>
-        </div>
-
-        <!-- 11. إكسسوارات كهربائية -->
-        <div class="category-card">
-          <h3>إكسسوارات كهربائية</h3>
-          <ul>
-            <li>أفياش ومقابس</li>
-            <li>محولات ووصلات</li>
-            <li>إكسسوارات تركيب وصيانة</li>
-          </ul>
+        <!-- 6. مراوح وشفاطات -->
+        <div class="category-card" data-cat="fans">
+          <button class="category-header">
+            <span>مراوح وشفاطات</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="category-body">
+            <button class="subcat-link" data-gallery="fans">مراوح وشفاطات</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- معرض القسم الفرعي -->
+  <div id="subcat-gallery" class="subcat-gallery">
+    <div class="container section">
+      <button id="back-to-cats" class="btn ghost back-btn">
+        ⟵ الرجوع إلى الأقسام الرئيسية
+      </button>
+
+      <div class="section-header">
+        <h2 id="subcat-title">عنوان القسم الفرعي</h2>
+        <p id="subcat-desc">وصف بسيط عن هذا القسم.</p>
+      </div>
+
+      <div id="subcat-images" class="gallery-grid">
+        <!-- هنا بتنعبي الصور من الجافاسكربت -->
+      </div>
+    </div>
+  </div>
 </section>
+
 
     <!-- ℹ️ من نحن -->
     <section id="page-about" class="page-section">
