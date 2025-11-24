@@ -23,74 +23,55 @@
 </head>
 <body>
 
-  <!-- زر العودة للرئيسية (يظهر فقط خارج الرئيسية) -->
-  <button id="back-home-btn" class="back-home-btn">العودة للرئيسية</button>
-
-  <!-- 🔝 Topbar (مخفي من الـ CSS) 
-  <header class="topbar">
-    <div class="container flex-between">
-      <div class="topbar-contact">
-        <span>
-          <i class="fa-solid fa-phone"></i>
-          <span data-i18n="topbar_phone_label">اتصل بنا:</span>
-          <a href="tel:0790000000">0790000000</a>
-        </span>
-        <span class="divider">|</span>
-        <span>
-          <i class="fa-brands fa-whatsapp"></i>
-          <span>WhatsApp:</span>
-          <a href="https://wa.me/962790000000" target="_blank">+962 79 000 0000</a>
-        </span>
-      </div>
-      <button id="lang-toggle" class="lang-btn">EN</button>
-    </div>
-  </header>
-  -->
   <!-- 🔻 Navbar -->
-<nav class="navbar">
-  <div class="container nav-inner">
-    <div class="brand">
-      <div class="brand-text">
-        <span>أبو بكر للإنارة</span>
-        <small>إضاءة تُكمل فخامة بيتك</small>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <!-- يسار: منيو + لغة + زر عودة -->
+      <div class="nav-right">
+        <button class="nav-toggle" id="nav-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <button id="lang-toggle" class="lang-btn">EN</button>
+
+        <button id="back-home-btn" class="back-home-btn">
+          العودة للرئيسية
+        </button>
       </div>
-      <img
-        src="https://i.imgur.com/bFHCZ3o.png"
-        alt="شعار أبو بكر للإنارة"
-        class="brand-logo-img"
-      />
+
+      <!-- وسط: روابط -->
+      <ul class="nav-links" id="nav-links">
+        <li class="nav-link active" data-section="home" data-i18n="nav_home">الرئيسية</li>
+        <li class="nav-link" data-section="about" data-i18n="nav_about">من نحن</li>
+        <li class="nav-link" data-section="products" data-i18n="nav_products">المنتجات</li>
+        <li class="nav-link" data-section="gallery" data-i18n="nav_gallery">المعرض</li>
+        <li class="nav-link" data-section="projects" data-i18n="nav_projects">أعمالنا</li>
+        <li class="nav-link" data-section="contact" data-i18n="nav_contact">تواصل</li>
+      </ul>
+
+      <!-- يمين: اللوجو والاسم -->
+      <div class="brand">
+        <div class="brand-logo">
+          <img
+            src="https://i.imgur.com/bFHCZ3o.png"
+            alt="شعار أبو بكر للإنارة"
+            class="brand-logo-img"
+          />
+        </div>
+        <div class="brand-text">
+          <span data-i18n="brand_name_main">أبو بكر للإنارة</span>
+          <small data-i18n="brand_name_sub">إضاءة تُكمل فخامة بيتك</small>
+        </div>
+      </div>
     </div>
-
-    <!-- روابط الناف -->
-    <ul class="nav-links" id="nav-links">
-      <li class="nav-link active" data-section="home">الرئيسية</li>
-      <li class="nav-link" data-section="about">من نحن</li>
-      <li class="nav-link" data-section="products">المنتجات</li>
-      <li class="nav-link" data-section="gallery">المعرض</li>
-      <li class="nav-link" data-section="projects">أعمالنا</li>
-      <li class="nav-link" data-section="contact">تواصل</li>
-    </ul>
-
-    <!-- ثلاث شحطات + زر اللغة تحتها -->
-    <div class="nav-right">
-      <button class="nav-toggle" id="nav-toggle">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
-      <button id="lang-toggle" class="lang-btn">EN</button>
-    </div>
-  </div>
-</nav>
-
+  </nav>
 
   <main>
 
     <!-- 🏠 الرئيسية -->
     <section id="page-home" class="page-section active">
-
       <!-- HERO -->
       <div class="hero">
-        <!-- خلفية الهيرو -->
         <div class="hero-bg" style="background-image: url('https://i.imgur.com/iD0wrd7.jpeg');"></div>
 
         <div class="container hero-content">
@@ -113,7 +94,7 @@
             </div>
           </div>
 
-          <!-- ثريات على اليمين -->
+          <!-- ثريات متحركة -->
           <div class="hero-lamps">
             <div class="lamp-cluster lamp-1">
               <div class="lamp-wire"></div>
@@ -242,17 +223,16 @@
           </div>
 
           <div id="subcat-images" class="gallery-grid">
-            <!-- هنا بتنعبي الصور من الجافاسكربت -->
+            <!-- تتعبّى من الجافاسكربت -->
           </div>
         </div>
       </div>
-      <div class="home-branches section">
-        <div class="container">
-          <div class="section-header">
-            <h2>فروعنا</h2>
-            <p>تقدر تزورنا بأقرب فرع إلك.</p>
-          </div>
-          <div class="grid branches-grid">
+
+      <!-- فروعنا (أسفل الرئيسية فقط) -->
+      <section class="branches-section">
+        <div class="container branches-inner">
+          <h2>فروعنا</h2>
+          <div class="branches-grid">
             <div class="branch-card">
               <h3>الفرع الرئيسي</h3>
               <p>قرب إشارة بردا</p>
@@ -263,8 +243,7 @@
             </div>
           </div>
         </div>
-      </div>
-
+      </section>
     </section>
 
     <!-- ℹ️ من نحن -->
@@ -305,7 +284,6 @@
         </div>
 
         <div class="grid products-grid">
-          <!-- ثريات فاخرة -->
           <div class="product-card">
             <div
               class="product-img"
@@ -317,7 +295,6 @@
             </p>
           </div>
 
-          <!-- سبوتات وإنارة مخفية -->
           <div class="product-card">
             <div
               class="product-img"
@@ -329,7 +306,6 @@
             </p>
           </div>
 
-          <!-- ليد شريط وإنارة ديكورية -->
           <div class="product-card">
             <div
               class="product-img"
@@ -341,7 +317,6 @@
             </p>
           </div>
 
-          <!-- إنارة خارجية -->
           <div class="product-card">
             <div
               class="product-img"
@@ -364,18 +339,60 @@
           <p data-i18n="gallery_subtitle">لقطات من داخل المعرض وأبرز القطع</p>
         </div>
         <div class="gallery-grid">
+          <!-- نفس صورك السابقة (ما عدّلتها) -->
           <img src="https://i.imgur.com/ImXt2UA.jpeg" alt="إنارة 1" class="gallery-item" />
           <img src="https://i.imgur.com/qmsSYer.jpeg" alt="إنارة 2" class="gallery-item" />
           <img src="https://i.imgur.com/tUaJh8c.jpeg" alt="إنارة 3" class="gallery-item" />
           <img src="https://i.imgur.com/TqZ9llQ.jpeg" alt="إنارة 4" class="gallery-item" />
           <img src="https://i.imgur.com/h74UouB.jpeg" alt="إنارة 5" class="gallery-item" />
-          <img src="https://i.imgur.com/AgwTI2n.jpeg" alt="إنارة 6" class="gallery-item" />
-          <img src="https://i.imgur.com/rXYyfud.jpeg" alt="إنارة 7" class="gallery-item" />
-          <img src="https://i.imgur.com/nVGryNq.jpeg" alt="إنارة 8" class="gallery-item" />
-          <img src="https://i.imgur.com/Xk3XIK0.jpeg" alt="إنارة 9" class="gallery-item" />
-          <img src="https://i.imgur.com/1nXHeYK.jpeg" alt="إنارة 10" class="gallery-item" />
-          <img src="https://i.imgur.com/UvAJH6P.jpeg" alt="إنارة 11" class="gallery-item" />
-          <img src="https://i.imgur.com/ZaPj0mv.jpeg" alt="إنارة 12" class="gallery-item" />
+          <img src="https://i.imgur.com/qmez3u4.jpeg" alt="إنارة 6" class="gallery-item" />
+          <img src="https://i.imgur.com/AgwTI2n.jpeg" alt="إنارة 7" class="gallery-item" />
+          <img src="https://i.imgur.com/rXYyfud.jpeg" alt="إنارة 8" class="gallery-item" />
+          <img src="https://i.imgur.com/nVGryNq.jpeg" alt="إنارة 9" class="gallery-item" />
+          <img src="https://i.imgur.com/Xk3XIK0.jpeg" alt="إنارة 10" class="gallery-item" />
+          <img src="https://i.imgur.com/1nXHeYK.jpeg" alt="إنارة 11" class="gallery-item" />
+          <img src="https://i.imgur.com/UtyBbxR.jpeg" alt="إنارة 12" class="gallery-item" />
+          <img src="https://i.imgur.com/ZaPj0mv.jpeg" alt="إنارة 13" class="gallery-item" />
+          <img src="https://i.imgur.com/UvAJH6P.jpeg" alt="إنارة 14" class="gallery-item" />
+          <img src="https://i.imgur.com/rjmtSN0.jpeg" alt="إنارة 15" class="gallery-item" />
+          <img src="https://i.imgur.com/jYbwhhv.jpeg" alt="إنارة 16" class="gallery-item" />
+          <img src="https://i.imgur.com/K4i6ttw.jpeg" alt="إنارة 17" class="gallery-item" />
+          <img src="https://i.imgur.com/LBPTqbd.jpeg" alt="إنارة 18" class="gallery-item" />
+          <img src="https://i.imgur.com/1sT07MO.jpeg" alt="إنارة 19" class="gallery-item" />
+          <img src="https://i.imgur.com/atEl2e4.jpeg" alt="إنارة 20" class="gallery-item" />
+          <img src="https://i.imgur.com/MRL53dJ.jpeg" alt="إنارة 21" class="gallery-item" />
+          <img src="https://i.imgur.com/nF1piz0.jpeg" alt="إنارة 22" class="gallery-item" />
+          <img src="https://i.imgur.com/WUyi5sg.jpeg" alt="إنارة 23" class="gallery-item" />
+          <img src="https://i.imgur.com/x3wM0Sc.jpeg" alt="إنارة 24" class="gallery-item" />
+          <img src="https://i.imgur.com/s9xedTS.jpeg" alt="إنارة 25" class="gallery-item" />
+          <img src="https://i.imgur.com/KduneRk.jpeg" alt="إنارة 26" class="gallery-item" />
+          <img src="https://i.imgur.com/41fhdjq.jpeg" alt="إنارة 27" class="gallery-item" />
+          <img src="https://i.imgur.com/JjeUqSp.jpeg" alt="إنارة 28" class="gallery-item" />
+          <img src="https://i.imgur.com/cjsWJmn.jpeg" alt="إنارة 29" class="gallery-item" />
+          <img src="https://i.imgur.com/fdgtFDN.jpeg" alt="إنارة 30" class="gallery-item" />
+          <img src="https://i.imgur.com/6ayUpdX.jpeg" alt="إنارة 31" class="gallery-item" />
+          <img src="https://i.imgur.com/LpMsCBd.jpeg" alt="إنارة 32" class="gallery-item" />
+          <img src="https://i.imgur.com/KkudgPu.jpeg" alt="إنارة 33" class="gallery-item" />
+          <img src="https://i.imgur.com/VdGsM0H.jpeg" alt="إنارة 34" class="gallery-item" />
+          <img src="https://i.imgur.com/hb9FABk.jpeg" alt="إنارة 35" class="gallery-item" />
+          <img src="https://i.imgur.com/b8RmBwi.jpeg" alt="إنارة 36" class="gallery-item" />
+          <img src="https://i.imgur.com/RhbZSpb.jpeg" alt="إنارة 37" class="gallery-item" />
+          <img src="https://i.imgur.com/HsjDRWq.jpeg" alt="إنارة 38" class="gallery-item" />
+          <img src="https://i.imgur.com/ShsRYzS.jpeg" alt="إنارة 39" class="gallery-item" />
+          <img src="https://i.imgur.com/euTlcGo.jpeg" alt="إنارة 40" class="gallery-item" />
+          <img src="https://i.imgur.com/Fi0vN6D.jpeg" alt="إنارة 41" class="gallery-item" />
+          <img src="https://i.imgur.com/WzjtEN6.jpeg" alt="إنارة 42" class="gallery-item" />
+          <img src="https://i.imgur.com/F0sju2M.jpeg" alt="إنارة 43" class="gallery-item" />
+          <img src="https://i.imgur.com/ByCzTVw.jpeg" alt="إنارة 44" class="gallery-item" />
+          <img src="https://i.imgur.com/2kYziiz.jpeg" alt="إنارة 45" class="gallery-item" />
+          <img src="https://i.imgur.com/OwzYC6D.jpeg" alt="إنارة 46" class="gallery-item" />
+          <img src="https://i.imgur.com/xzQESMU.jpeg" alt="إنارة 47" class="gallery-item" />
+          <img src="https://i.imgur.com/FZkTPG2.jpeg" alt="إنارة 48" class="gallery-item" />
+          <img src="https://i.imgur.com/Qbh5Gdm.jpeg" alt="إنارة 49" class="gallery-item" />
+          <img src="https://i.imgur.com/VdGsM0H.jpeg"  alt="إنارة 50" class="gallery-item" />
+          <img src="https://i.imgur.com/QY2u2jY.jpeg" alt="إنارة 51" class="gallery-item" />
+          <img src="https://i.imgur.com/GOlxqf9.jpeg" alt="إنارة 52" class="gallery-item" />
+          <img src="https://i.imgur.com/BFwq67r.jpeg" alt="إنارة 53" class="gallery-item" />
         </div>
       </div>
 
@@ -437,7 +454,6 @@
       </div>
     </section>
 
-
     <!-- 📞 تواصل -->
     <section id="page-contact" class="page-section">
       <div class="container section">
@@ -452,17 +468,17 @@
           <div class="contact-info">
             <h3 data-i18n="contact_visit_title">زورنا في المعرض</h3>
             <p data-i18n="contact_address">
-              الأردن - إربد (قرب إشارة بردا)
+              الأردن - اربد (قرب إشارة بردا)
             </p>
             <p>
               <i class="fa-solid fa-phone"></i>
               <span data-i18n="contact_phone_label">الهاتف:</span>
-              <a href="tel:+962785844782">+962785844782</a>
+              <a href="tel:0785844782">0785844782</a>
             </p>
             <p>
               <i class="fa-brands fa-whatsapp"></i>
               WhatsApp:
-              <a href="https://wa.me/962785844782" target="_blank">+962785844782</a>
+              <a href="https://wa.me/962785844782" target="_blank">+962 78 584 4782</a>
             </p>
             <p>
               <i class="fa-solid fa-clock"></i>
@@ -488,32 +504,36 @@
               تواصل عبر واتساب
             </a>
 
-                <div class="map-wrapper">
-                  <!-- خريطة جوجل (embed) -->
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.6520463775977!2d35.8493331!3d32.553216499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b8e5d41dfe3f5%3A0x60d96942f9b49968!2z2KfZhNmF2YrYqSDYp9mE2YXYsdin2YTZgyDYp9mE2LLZitmE!5e0!3m2!1sar!2sjo!4v1717171717171"
-                    width="100%"
-                    height="260"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                
-                  <!-- رابط فتح الخريطة -->
-                  <p style="margin-top:0.6rem;">
-                    <a href="https://maps.app.goo.gl/NudXkA3B1VEbCSCo6" target="_blank" style="color:#d4a017; font-weight:600;">
-                      افتح الموقع على خرائط جوجل
-                    </a>
-                  </p>
-                </div>
-
+            <div class="map-wrapper">
+              <iframe
+                src="https://maps.app.goo.gl/NudXkA3B1VEbCSCo6?g_st=ipc"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <p style="margin-top:0.6rem;">
+                <a href="https://maps.app.goo.gl/NudXkA3B1VEbCSCo6"
+                  target="_blank"
+                  style="color:#d4a017; font-weight:600;">
+                  افتح الموقع على خرائط جوجل
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- أزرار واتساب و اتصال ثابتة -->
+  <div class="floating-contact">
+    <a href="tel:0785844782" class="float-btn float-call">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://wa.me/962785844782" target="_blank" class="float-btn float-whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
 
   <!-- ⚫ Footer -->
   <footer class="footer">
@@ -522,17 +542,6 @@
       <p class="footer-dev"></p>
     </div>
   </footer>
-
-  <!-- أزرار تواصل طايرة (اتصال + واتساب) -->
-  <div class="floating-contact">
-    <a href="tel:+962785844782" class="float-btn float-call">
-      <i class="fa-solid fa-phone"></i>
-    </a>
-
-    <a href="https://wa.me/962785844782" target="_blank" class="float-btn float-whatsapp">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-  </div>
 
   <!-- JS -->
   <script src="js/main.js"></script>
