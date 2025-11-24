@@ -2,14 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".page-section");
   const goButtons = document.querySelectorAll("[data-go]");
-  const langToggleBtn = document.getElementById("lang-toggle");
   const navToggle = document.getElementById("nav-toggle");
   const navLinksContainer = document.getElementById("nav-links");
+  const langToggleBtn = document.getElementById("lang-toggle");
   const footerCopy = document.getElementById("footer-copy");
   const backHomeBtn = document.getElementById("back-home-btn");
   const homeSection = document.getElementById("page-home");
 
-  /* ========= تفعيل قسم معيّن ========= */
+  /* ========= تفعيل الأقسام ========= */
+
   function activateSection(sectionName) {
     sections.forEach((sec) => {
       sec.classList.toggle("active", sec.id === `page-${sectionName}`);
@@ -30,16 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  /* ========= زر الرجوع للرئيسية ========= */
-// خليه دايماً ظاهر بكل الأقسام
-function updateBackButton() {
-  backHomeBtn.style.display = "block";
-}
-
-// نادِ الفنكشن أول مرة
-updateBackButton();
-
-  /* ========= التنقّل من المنيو ========= */
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       const target = link.getAttribute("data-section");
@@ -47,7 +38,6 @@ updateBackButton();
     });
   });
 
-  /* ========= أزرار "اذهب إلى" في الهيرو ========= */
   goButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const target = btn.getAttribute("data-go");
@@ -55,28 +45,44 @@ updateBackButton();
     });
   });
 
-  /* ========= منيو الموبايل ========= */
+  /* ========= زر العودة للرئيسية ========= */
+
+  function updateBackButton() {
+    if (!homeSection.classList.contains("active")) {
+      backHomeBtn.style.display = "inline-flex";
+    } else {
+      backHomeBtn.style.display = "none";
+    }
+  }
+
+  if (backHomeBtn) {
+    backHomeBtn.addEventListener("click", () => {
+      activateSection("home");
+    });
+  }
+
+  updateBackButton(); // أول مرة
+
+  /* ========= موبايل منيو ========= */
+
   if (navToggle && navLinksContainer) {
     navToggle.addEventListener("click", () => {
       navLinksContainer.classList.toggle("open");
     });
   }
 
-  /* ========= Lightbox للصور ========= */
+  /* ========= لايت بوكس للمعرض ========= */
+
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.querySelector(".lightbox-img");
   const lightboxClose = document.querySelector(".lightbox-close");
 
-  function openLightbox(src) {
-    if (!lightbox || !lightboxImg) return;
-    lightboxImg.src = src;
-    lightbox.classList.add("open");
-  }
-
   if (lightbox && lightboxImg && lightboxClose) {
-    // صور المعرض الأساسية
     document.querySelectorAll(".gallery-item").forEach((img) => {
-      img.addEventListener("click", () => openLightbox(img.src));
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add("open");
+      });
     });
 
     lightboxClose.addEventListener("click", () => {
@@ -90,7 +96,7 @@ updateBackButton();
     });
   }
 
-  /* ========= تعدّد اللغات (عربي / إنجليزي) ========= */
+  /* ========= تعدد اللغات ========= */
 
   let currentLang = "ar";
 
@@ -150,14 +156,14 @@ updateBackButton();
       contact_subtitle:
         "احجز استشارة أو اسأل عن أي قطعة تناسب ديكور بيتك",
       contact_visit_title: "زورنا في المعرض",
-      contact_address: "الأردن - اكتب هنا عنوان أبو بكر للإنارة بالتفصيل",
+      contact_address: "الأردن - اربد (قرب إشارة بردا)",
       contact_phone_label: "الهاتف:",
       contact_hours_label: "ساعات العمل:",
       contact_hours_value: "السبت - الخميس: 10 صباحًا - 10 مساءً",
       contact_form_title: "تواصل سريع عبر واتساب",
       contact_form_desc:
         "اضغط على الزر أدناه لبدء محادثة واتساب معنا مباشرة، وأرسل لنا صورة الغرفة أو المكان لنقترح لك أنسب إنارة.",
-      contact_whatsapp_btn: "تواصل عبر واتساب"
+      contact_whatsapp_btn: "تواصل عبر واتساب",
     },
 
     en: {
@@ -189,10 +195,10 @@ updateBackButton();
         "Crystal and modern chandeliers suitable for living rooms, dining rooms and high-ceiling villas.",
       prod_spots_title: "Spotlights & hidden lighting",
       prod_spots_desc:
-        "Ceiling spotlights and hidden LED lighting for gypsum ceilings with a modern, comfortable light distribution.",
+        "Ceiling spotlights and hidden LED lighting for gypsum ceilings with modern, comfortable distribution.",
       prod_led_title: "LED strips & decorative lighting",
       prod_led_desc:
-        "LED strips and decorative effects to highlight gypsum details and interior design elements.",
+        "LED strips and decorative effects to highlight gypsum details and interior design.",
       prod_outdoor_title: "Outdoor lighting",
       prod_outdoor_desc:
         "Lighting fixtures for gardens, pathways, facades and villa entrances.",
@@ -207,7 +213,7 @@ updateBackButton();
         "A complete lighting design for a villa including living rooms, bedrooms, corridors and the exterior facade.",
       project2_title: "Retail shop",
       project2_desc:
-        "Product-focused lighting for a retail shop with light distribution that highlights colors and details.",
+        "Product-focused lighting for a retail shop that highlights colors and details.",
       project3_title: "Family apartment",
       project3_desc:
         "Practical and budget-friendly lighting solutions for a family apartment with a cozy atmosphere.",
@@ -216,16 +222,15 @@ updateBackButton();
       contact_subtitle:
         "Book a consultation or ask about any piece that suits your décor",
       contact_visit_title: "Visit our showroom",
-      contact_address:
-        "Jordan – write here the full address of Abu Bakr Lighting",
+      contact_address: "Jordan – Irbid (near Barda traffic light)",
       contact_phone_label: "Phone:",
       contact_hours_label: "Opening hours:",
       contact_hours_value: "Saturday – Thursday: 10am – 10pm",
       contact_form_title: "Fast contact on WhatsApp",
       contact_form_desc:
-        "Click the button below to start a WhatsApp chat with us and send a photo of your room so we can suggest the best lighting.",
-      contact_whatsapp_btn: "Contact on WhatsApp"
-    }
+        "Click the button below to start a WhatsApp chat and send us a photo of your room so we can suggest the best lighting.",
+      contact_whatsapp_btn: "Contact on WhatsApp",
+    },
   };
 
   function applyLanguage(lang) {
@@ -254,11 +259,11 @@ updateBackButton();
     if (lang === "ar") {
       document.documentElement.lang = "ar";
       document.documentElement.dir = "rtl";
-      if (langToggleBtn) langToggleBtn.textContent = "EN";
+      langToggleBtn.textContent = "EN";
     } else {
       document.documentElement.lang = "en";
       document.documentElement.dir = "ltr";
-      if (langToggleBtn) langToggleBtn.textContent = "عربي";
+      langToggleBtn.textContent = "عربي";
     }
   }
 
@@ -271,28 +276,26 @@ updateBackButton();
     });
   }
 
-  /* ========= كروت الأقسام (أكورديون) ========= */
+  /* ========= كروت الأقسام الرئيسية + جاليري فرعي ========= */
+
   const categoryCards = document.querySelectorAll(".category-card");
 
   categoryCards.forEach((card) => {
     const header = card.querySelector(".category-header");
     if (!header) return;
-
     header.addEventListener("click", () => {
       card.classList.toggle("open");
     });
   });
 
-  /* ========= بيانات المعرض لكل قسم فرعي ========= */
   const galleryData = {
-    // الثريات
     "thu-modern": {
       title: "ثريات مودرن",
       desc: "مجموعة من الثريات المودرن بتصاميم عصرية تناسب الصالونات وغرف المعيشة.",
       images: [
         "https://i.imgur.com/jFEsyhC.jpeg",
         "https://i.imgur.com/amXvUUL.jpeg"
-      ]
+      ],
     },
     "thu-crystal": {
       title: "ثريات كريستال",
@@ -300,7 +303,7 @@ updateBackButton();
       images: [
         "https://i.imgur.com/iD0wrd7.jpeg",
         "https://i.imgur.com/HvHtGm.jpeg"
-      ]
+      ],
     },
     "thu-stairs": {
       title: "ثريات مطالع الدرج",
@@ -309,7 +312,7 @@ updateBackButton();
         "https://i.imgur.com/GLnZ7LF.jpeg",
         "https://i.imgur.com/RLGHNSb.jpeg",
         "https://i.imgur.com/xf56xsh.jpeg"
-      ]
+      ],
     },
     "thu-pendants": {
       title: "معلّقات",
@@ -318,7 +321,7 @@ updateBackButton();
         "https://i.imgur.com/hb9FABk.jpeg",
         "https://i.imgur.com/VdGsM0H.jpeg",
         "https://i.imgur.com/KkudgPu.jpeg"
-      ]
+      ],
     },
     "thu-floor-table": {
       title: "فلور لامب وتيبل لامب",
@@ -326,17 +329,16 @@ updateBackButton();
       images: [
         "https://i.imgur.com/6ayUpdX.jpeg",
         "https://i.imgur.com/cjsWJmn.jpeg"
-      ]
+      ],
     },
 
-    // إنارة جدارية
     "wall-outdoor": {
       title: "إنارة جدارية خارجية",
       desc: "إنارة جدارية خارجية للواجهات والمداخل.",
       images: [
         "https://i.imgur.com/ShsRYzS.jpeg",
         "https://i.imgur.com/euTlcGo.jpeg"
-      ]
+      ],
     },
     "wall-solar": {
       title: "إنارة جدارية بالطاقة الشمسية",
@@ -344,24 +346,21 @@ updateBackButton();
       images: [
         "https://i.imgur.com/UtyBbxR.jpeg",
         "https://i.imgur.com/ZaPj0mv.jpeg"
-      ]
+      ],
     },
 
-    // إنارة داخلية
     "in-strip": {
       title: "ستريب لِد",
       desc: "شرائط لِد لإضاءة الجبس والديكور الداخلي.",
       images: [
         "https://i.imgur.com/h74UouB.jpeg",
         "https://i.imgur.com/qmsSYer.jpeg"
-      ]
+      ],
     },
     "in-magnetic": {
       title: "إنارة مجناتيك",
       desc: "مسارات مغناطيسية بإضاءات متعددة قابلة للتركيب والتغيير.",
-      images: [
-        "https://i.imgur.com/GOlxqf9.jpeg"
-      ]
+      images: ["https://i.imgur.com/GOlxqf9.jpeg"],
     },
     "in-smart": {
       title: "إنارة مجناتيك سمارت",
@@ -369,7 +368,7 @@ updateBackButton();
       images: [
         "https://i.imgur.com/GOlxqf9.jpeg",
         "https://i.imgur.com/UtyBbxR.jpeg"
-      ]
+      ],
     },
     "in-frame": {
       title: "فريم للسبوت",
@@ -377,17 +376,16 @@ updateBackButton();
       images: [
         "https://i.imgur.com/Inei5Eg.jpeg",
         "https://i.imgur.com/iNnI4mu.jpeg"
-      ]
+      ],
     },
 
-    // إنارة خارجية
     "out-lanterns": {
       title: "فوانيس خارجية",
       desc: "فوانيس إنارة للحدائق والمداخل والشرفات.",
       images: [
         "https://i.imgur.com/LI7gtLh.jpeg",
         "https://i.imgur.com/asbN7ky.jpeg"
-      ]
+      ],
     },
     "out-garden": {
       title: "إنارة أرضية وحدائق",
@@ -395,7 +393,7 @@ updateBackButton();
       images: [
         "https://i.imgur.com/LSfmuaV.jpeg",
         "https://i.imgur.com/K4i6ttw.jpeg"
-      ]
+      ],
     },
     "out-flood": {
       title: "كشافات لِد خارجية",
@@ -404,7 +402,7 @@ updateBackButton();
         "https://i.imgur.com/UvAJH6P.jpeg",
         "https://i.imgur.com/ZaPj0mv.jpeg",
         "https://i.imgur.com/TqZ9llQ.jpeg"
-      ]
+      ],
     },
     "out-street": {
       title: "إنارة شوارع",
@@ -413,17 +411,16 @@ updateBackButton();
         "https://i.imgur.com/ByCzTVw.jpeg",
         "https://i.imgur.com/F0sju2M.jpeg",
         "https://i.imgur.com/OwzYC6D.jpeg"
-      ]
+      ],
     },
 
-    // لمبات
     "bulb-led": {
       title: "لمبات لِد",
       desc: "لمبات لِد باستهلاك منخفض وعمر طويل.",
       images: [
         "https://i.imgur.com/h74UouB.jpeg",
         "https://i.imgur.com/tUaJh8c.jpeg"
-      ]
+      ],
     },
     "bulb-neon": {
       title: "لمبات نيون",
@@ -431,7 +428,7 @@ updateBackButton();
       images: [
         "https://i.imgur.com/tUaJh8c.jpeg",
         "https://i.imgur.com/h74UouB.jpeg"
-      ]
+      ],
     },
     "bulb-spot": {
       title: "سبوت لِد",
@@ -439,7 +436,7 @@ updateBackButton();
       images: [
         "https://i.imgur.com/Inei5Eg.jpeg",
         "https://i.imgur.com/iNnI4mu.jpeg"
-      ]
+      ],
     },
     "bulb-louver": {
       title: "لوفر لِد 60×60",
@@ -447,10 +444,9 @@ updateBackButton();
       images: [
         "https://i.imgur.com/ImXt2UA.jpeg",
         "https://i.imgur.com/qmsSYer.jpeg"
-      ]
+      ],
     },
 
-    // مراوح وشفاطات
     "fans": {
       title: "مراوح وشفاطات",
       desc: "مجموعة من المراوح والشفاطات للاستخدام المنزلي والتجاري.",
@@ -460,8 +456,8 @@ updateBackButton();
         "https://i.imgur.com/nVGryNq.jpeg",
         "https://i.imgur.com/Xk3XIK0.jpeg",
         "https://i.imgur.com/1nXHeYK.jpeg"
-      ]
-    }
+      ],
+    },
   };
 
   const subcatGallery = document.getElementById("subcat-gallery");
@@ -486,59 +482,21 @@ updateBackButton();
         img.src = url;
         img.alt = data.title;
         img.classList.add("gallery-item");
-        img.addEventListener("click", () => openLightbox(url));
         subcatImages.appendChild(img);
       });
 
-      if (subcatGallery) {
-        subcatGallery.classList.add("active");
-        subcatGallery.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      subcatGallery.classList.add("active");
+      subcatGallery.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 
   if (backToCatsBtn) {
     backToCatsBtn.addEventListener("click", () => {
-      if (subcatGallery) {
-        subcatGallery.classList.remove("active");
-      }
+      subcatGallery.classList.remove("active");
       const catsSection = document.querySelector(".home-categories");
       if (catsSection) {
         catsSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   }
-});
-document.addEventListener("DOMContentLoaded", function () {
-  const backHomeBtn = document.getElementById("back-home-btn");
-  const sections = document.querySelectorAll(".page-section");
-  const homeSection = document.getElementById("page-home");
-
-  if (!backHomeBtn || !homeSection || !sections.length) return;
-
-  function updateBackButton() {
-    // لو الرئيسية هي الفعّالة → خفي الزر
-    if (homeSection.classList.contains("active")) {
-      backHomeBtn.style.display = "none";
-    } else {
-      backHomeBtn.style.display = "block";
-    }
-  }
-
-  // لما تكبس على "العودة للرئيسية"
-  backHomeBtn.addEventListener("click", function () {
-    sections.forEach((sec) => sec.classList.remove("active"));
-    homeSection.classList.add("active");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    updateBackButton();
-  });
-
-  // أول تحميل
-  updateBackButton();
-
-  // نراقب تغيّر الكلاسات (active) على الأقسام
-  const observer = new MutationObserver(updateBackButton);
-  sections.forEach((sec) => {
-    observer.observe(sec, { attributes: true, attributeFilter: ["class"] });
-  });
 });
